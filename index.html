@@ -1,0 +1,1749 @@
+<!-- Browser ko batata hai ke yeh HTML5 webpage hai. -->
+<!DOCTYPE html>
+<!-- Yeh poore webpage ka main hissa shuru karta hai; lang zaban aur dir likhne ki simt batata hai. -->
+<html lang="en" dir="ltr">
+<!-- Yeh head shuru karta hai. -->
+<head>
+   <!-- Yahan browser ko page ki bunyadi settings milti hain: zaban, screen size aur title. -->
+   
+    <!-- Yeh browser ko batata hai ke text ke harf kaise parhne hain. -->
+    <meta charset="UTF-8">
+    <!-- Yeh page ko mobile screen par theek size mein dikhata hai. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Portfolio of Uzair featuring responsive web development, UI design, SEO, and selected client projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Uzair-Dev-Coder — Portfolio">
+    <meta property="og:description" content="Responsive web development, UI design, SEO, and selected client projects by Uzair.">
+    <meta property="og:image" content="orbit-skills-business-card-dark.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="orbit-skills-business-card-dark.png">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Uzair","jobTitle":"Web Developer","sameAs":["https://github.com/Uzair-Dev-Coder"]}
+    </script>
+    <!-- Yeh browser ke tab par page ka naam dikhata hai. -->
+    <title>Uzair-Dev-Coder — Portfolio</title>
+    
+    <script src="script.js" defer></script>
+    
+   <!-- Font Awesome icons ke chhote tasveer-numa symbols dikhata hai. -->
+   
+    <!-- Yeh website mein icons dikhane wali library jorta hai. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+   <!-- Google Fonts se page ke liye Arabic aur code likhne wale fonts mangwaye jate hain. -->
+   
+    <!-- Yeh website ke text ke liye bahar se font mangwata hai. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Yeh website ke text ke liye bahar se font mangwata hai. -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Yeh website ke text ke liye bahar se font mangwata hai. -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+   <!-- Apni website ke rang, size aur layout style.css file se aate hain. -->
+   
+    <!-- Yeh website ki styling file jorta hai. -->
+    <link rel="stylesheet" href="style.css">
+<!-- Yeh head wala hissa band karta hai. -->
+</head>
+<!-- Body mein website ka asal content hai; shuru mein dark rang aur English zaban chuni gayi hai. -->
+<!-- Yeh webpage ka nazar aane wala content shuru karta hai. -->
+<body class="body-main" data-lang="en" data-dir="ltr">
+    
+   <!-- Page tayyar hone tak yeh loading parda dikhata hai. Is ke andar code, ghoomta nishan aur progress hai. -->
+   
+    <!-- Yeh page tayyar hone tak nazar aane wala loading parda; id JavaScript ko iski pehchan deta hai. -->
+    <div class="loader-screen" id="loader">
+        <!-- Yeh loading parde ke andar ka content rakhne wala hissa shuru karta hai. -->
+        <div class="loader-content">
+            <!-- Yeh loading ke dauran dikhne wali code ki misaal rakhne wala hissa shuru karta hai. -->
+            <div class="loader-code-text">
+                <!-- Yeh dabba "const portfolio = {" wala text dikhata hai. -->
+                <div class="code-line" data-line="1">const portfolio = {</div>
+                <!-- Yeh dabba "loading: true," wala text dikhata hai. -->
+                <div class="code-line" data-line="2">  loading: true,</div>
+                <!-- Yeh dabba "status: 'initializing...'" wala text dikhata hai. -->
+                <div class="code-line" data-line="3">  status: 'initializing...'</div>
+                <!-- Yeh dabba "};" wala text dikhata hai. -->
+                <div class="code-line" data-line="4">};</div>
+            <!-- Yeh dabba band karta hai. -->
+            </div>
+            <!-- Yeh loading ka ghoomta nishan rakhne wala hissa shuru karta hai. -->
+            <div class="loader-spinner-wrapper">
+                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                <div class="loader-spinner"></div>
+            <!-- Yeh dabba band karta hai. -->
+            </div>
+            <!-- Yeh loading ki raftaar dikhane wali patti ka hissa shuru karta hai. -->
+            <div class="loader-progress-wrapper">
+                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                <div class="loader-progress-bar"></div>
+            <!-- Yeh dabba band karta hai. -->
+            </div>
+            <!-- Yeh dabba "0%" wala text dikhata hai. -->
+            <div class="loader-percentage" id="loaderPercent">0%</div>
+        <!-- Yeh dabba band karta hai. -->
+        </div>
+    <!-- Yeh dabba band karta hai. -->
+    </div>
+
+   <!-- Upar ka navigation hissa logo, page links aur zaban/rang/mobile menu buttons rakhta hai. -->
+   
+    <!-- Yeh upar ka hissa shuru karta hai; class naam se style.css is hissa ka look chunta hai; id JavaScript ko iski pehchan deta hai. -->
+    <header class="main-header" id="header">
+        <!-- Yeh links ka menu shuru karta hai; class naam se style.css is hissa ka look chunta hai. -->
+        <nav class="nav-container">
+            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+            <div class="nav-brand">
+                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                <div class="brand-logo">
+                    <!-- Yeh chhota text hissa "<" wala text dikhata hai. -->
+                    <span class="logo-bracket">&lt;</span>
+                        <!-- Yeh chhota text hissa "UDC" wala text dikhata hai. -->
+                        <span class="logo-text">UDC</span>
+                    <!-- Yeh chhota text hissa "/>" wala text dikhata hai. -->
+                    <span class="logo-bracket">/&gt;</span>
+                <!-- Yeh dabba band karta hai. -->
+                </div>
+            <!-- Yeh dabba band karta hai. -->
+            </div>
+            
+           <!-- Har link page ke ek alag section tak le jata hai; data-section JS ko current jagah batata hai. -->
+           
+            <!-- Yeh page ke mukhtalif hisson ke links ka menu; id JavaScript ko iski pehchan deta hai. -->
+            <div class="nav-menu" id="navMenu">
+                <!-- Yeh clickable link dikhata hai; href batata hai ke link #home par le jata hai. -->
+                <a href="#home" class="nav-link active" data-section="home">
+                    <!-- Yeh chhota icon dikhata hai. -->
+                    <i class="fas fa-home"></i>
+                    <!-- Yeh chhota text hissa "Home" wala text dikhata hai. -->
+                    <span class="nav-text" data-text-en="Home" data-text-ar="الرئيسية">Home</span>
+                <!-- Yeh link band karta hai. -->
+                </a>
+                <!-- Yeh clickable link dikhata hai; href batata hai ke link #about par le jata hai. -->
+                <a href="#about" class="nav-link" data-section="about">
+                    <!-- Yeh chhota icon dikhata hai. -->
+                    <i class="fas fa-user"></i>
+                    <!-- Yeh chhota text hissa "About" wala text dikhata hai. -->
+                    <span class="nav-text" data-text-en="About" data-text-ar="عني">About</span>
+                <!-- Yeh link band karta hai. -->
+                </a>
+                <!-- Yeh clickable link dikhata hai; href batata hai ke link #skills par le jata hai. -->
+                <a href="#skills" class="nav-link" data-section="skills">
+                    <!-- Yeh chhota icon dikhata hai. -->
+                    <i class="fas fa-code"></i>
+                    <!-- Yeh chhota text hissa "Skills" wala text dikhata hai. -->
+                    <span class="nav-text" data-text-en="Skills" data-text-ar="المهارات">Skills</span>
+                <!-- Yeh link band karta hai. -->
+                </a>
+                <!-- Yeh clickable link dikhata hai; href batata hai ke link #experience par le jata hai. -->
+                <a href="#experience" class="nav-link" data-section="experience">
+                    <!-- Yeh chhota icon dikhata hai. -->
+                    <i class="fas fa-briefcase"></i>
+                    <!-- Yeh chhota text hissa "Approach" wala text dikhata hai. -->
+                    <span class="nav-text" data-text-en="Approach" data-text-ar="منهجي">Approach</span>
+                <!-- Yeh link band karta hai. -->
+                </a>
+                <!-- Yeh clickable link dikhata hai; href batata hai ke link #projects par le jata hai. -->
+                <a href="#projects" class="nav-link" data-section="projects">
+                    <!-- Yeh chhota icon dikhata hai. -->
+                    <i class="fas fa-rocket"></i>
+                    <!-- Yeh chhota text hissa "Projects" wala text dikhata hai. -->
+                    <span class="nav-text" data-text-en="Projects" data-text-ar="المشاريع">Projects</span>
+                <!-- Yeh link band karta hai. -->
+                </a>
+                <!-- Yeh clickable link dikhata hai; href batata hai ke link #contact par le jata hai. -->
+                <a href="#contact" class="nav-link" data-section="contact">
+                    <!-- Yeh chhota icon dikhata hai. -->
+                    <i class="fas fa-envelope"></i>
+                    <!-- Yeh chhota text hissa "Contact" wala text dikhata hai. -->
+                    <span class="nav-text" data-text-en="Contact" data-text-ar="التواصل">Contact</span>
+                <!-- Yeh link band karta hai. -->
+                </a>
+            <!-- Yeh dabba band karta hai. -->
+            </div>
+            
+           <!-- Yeh buttons zaban, theme aur chhoti screen ka menu control karte hain. -->
+           
+            <!-- Yeh zaban aur mobile menu ke buttons ka hissa shuru karta hai. -->
+            <div class="nav-controls">
+                <!-- Yeh button banata hai; click karne par kaam hota hai. -->
+                <button class="lang-toggle" id="langToggle" type="button" title="Toggle Language" aria-label="Switch to Arabic">
+                    <!-- Yeh chhota icon dikhata hai. -->
+                    <i class="fas fa-language"></i>
+                    <!-- Yeh chhota text hissa "AR" wala text dikhata hai. -->
+                    <span class="lang-text">AR</span>
+                <!-- Yeh button wala hissa band karta hai. -->
+                </button>
+                <!-- Yeh button banata hai; click karne par kaam hota hai. -->
+                <button class="menu-toggle" id="menuToggle" type="button" title="Toggle Menu" aria-label="Open navigation" aria-controls="navMenu" aria-expanded="false">
+                    <!-- Yeh chhota text hissa shuru karta hai. -->
+                    <span></span>
+                    <!-- Yeh chhota text hissa shuru karta hai. -->
+                    <span></span>
+                    <!-- Yeh chhota text hissa shuru karta hai. -->
+                    <span></span>
+                <!-- Yeh button wala hissa band karta hai. -->
+                </button>
+            <!-- Yeh dabba band karta hai. -->
+            </div>
+        <!-- Yeh links ka menu wala hissa band karta hai. -->
+        </nav>
+    <!-- Yeh upar ka hissa wala hissa band karta hai. -->
+    </header>
+
+   <!-- Main mein portfolio ke tamam bunyadi sections rakhe gaye hain. -->
+   
+    <!-- Yeh page ka main content shuru karta hai; class naam se style.css is hissa ka look chunta hai. -->
+    <main class="main-content">
+        
+       <!-- Hero pehla section hai; is mein ta'aruf, role, buttons aur social links dikhte hain. -->
+       
+        <!-- Yeh home page hissa shuru karta hai. -->
+        <section id="home" class="hero-section">
+           <!-- Yeh sirf sajawat hai: grid background aur JS se banne wale tairte symbols. -->
+           
+            <!-- Yeh pehle hissa ka sajawati background wala hissa shuru karta hai. -->
+            <div class="hero-background">
+                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                <div class="code-grid-bg"></div>
+                <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; id JavaScript ko iski pehchan deta hai. -->
+                <div class="floating-particles" id="particles"></div>
+            <!-- Yeh dabba band karta hai. -->
+            </div>
+            
+           <!-- Hero ka asal content: text ek taraf aur profile/skill art doosri taraf hota hai. -->
+           
+            <!-- Yeh pehle hissa ka content rakhne wala dabba shuru karta hai. -->
+            <div class="hero-container">
+                <!-- Yeh ta-aruf ke alfaaz aur buttons ka hissa shuru karta hai. -->
+                <div class="hero-content">
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="hero-greeting">
+                        <!-- Yeh chhota text hissa "Hello, I'm" wala text dikhata hai. -->
+                        <span class="greeting-text" data-text-en="Hello, I'm" data-text-ar="مرحباً، أنا">Hello, I'm</span>
+                        <!-- Yeh chhota text hissa "|" wala text dikhata hai. -->
+                        <span class="greeting-cursor">|</span>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                    
+                    <!-- Yeh bara title shuru karta hai; class naam se style.css is hissa ka look chunta hai; id JavaScript ko iski pehchan deta hai. -->
+                    <h1 class="hero-name" id="heroName">
+                        <!-- Yeh chhota text hissa "const" wala text dikhata hai. -->
+                        <span class="name-prefix">const</span>
+                        <!-- Yeh chhota text hissa "=" wala text dikhata hai. -->
+                        <span class="name-operator">=</span>
+                        <!-- Yeh chhota text hissa "Uzair-Dev-Coder" wala text dikhata hai. -->
+                        <span class="name-value">Uzair-Dev-Coder</span>
+                        <!-- Yeh chhota text hissa ";" wala text dikhata hai. -->
+                        <span class="name-suffix">;</span>
+                    <!-- Yeh bara title wala hissa band karta hai. -->
+                    </h1>
+                    
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="hero-title">
+                        <!-- Yeh chhota text hissa "//" wala text dikhata hai. -->
+                        <span class="title-prefix">//</span>
+                        <!-- Yeh chhota text hissa "Full Stack Developer · UI/UX Designer · SEO Expert" wala text dikhata hai. -->
+                        <span class="title-text" data-text-en="Full Stack Developer · UI/UX Designer · SEO Expert" data-text-ar="مطور Full Stack · مصمم UI/UX · خبير SEO">Full Stack Developer · UI/UX Designer · SEO Expert</span>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                    
+                    <!-- Yeh paragraph shuru karta hai; class naam se style.css is hissa ka look chunta hai; data wali value JavaScript ke kaam aati hai. -->
+                    <p class="hero-description" data-text-en="I build polished websites from the first design sketch to the final line of code—and help the right people find them through SEO." data-text-ar="أصمم مواقع متكاملة من الفكرة إلى البرمجة، وأساعد الجمهور المناسب في العثور عليها عبر تحسين محركات البحث.">
+                        <!-- Yeh alfaaz website par dikhaye jate hain. -->
+                        I build polished websites from the first design sketch to the final line of code—and help the right people find them through SEO.
+                    <!-- Yeh paragraph band karta hai. -->
+                    </p>
+                    
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="hero-buttons">
+                        <!-- Yeh clickable link dikhata hai; href batata hai ke link #contact par le jata hai. -->
+                        <a href="#contact" class="btn btn-primary">
+                            <!-- Yeh chhota text hissa "Get In Touch" wala text dikhata hai. -->
+                            <span data-text-en="Get In Touch" data-text-ar="تواصل معي">Get In Touch</span>
+                            <!-- Yeh chhota icon dikhata hai. -->
+                            <i class="fas fa-arrow-right"></i>
+                        <!-- Yeh link band karta hai. -->
+                        </a>
+                        <!-- Yeh clickable link dikhata hai; href batata hai ke link #projects par le jata hai. -->
+                        <a href="#projects" class="btn btn-secondary">
+                            <!-- Yeh chhota text hissa "View Projects" wala text dikhata hai. -->
+                            <span data-text-en="View Projects" data-text-ar="عرض المشاريع">View Projects</span>
+                            <!-- Yeh chhota icon dikhata hai. -->
+                            <i class="fas fa-code"></i>
+                        <!-- Yeh link band karta hai. -->
+                        </a>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                    
+                   <!-- Personal profile links. -->
+                   
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="hero-social">
+                        <!-- Yeh clickable link dikhata hai; href batata hai ke link https://github.com/Uzair-Dev-Coder par le jata hai. -->
+                        <a href="https://github.com/Uzair-Dev-Coder" class="social-icon" title="GitHub" aria-label="GitHub">
+                            <!-- Yeh chhota icon dikhata hai. -->
+                            <i class="fab fa-github"></i>
+                        <!-- Yeh link band karta hai. -->
+                        </a>
+                        <!-- WhatsApp opens a pre-filled project inquiry in a new tab. -->
+                        <a href="https://wa.me/923259281031?text=Hi%20Uzair%2C%20I%20visited%20your%20portfolio%20and%20want%20to%20discuss%20a%20project" class="social-icon" title="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+                            <!-- Yeh chhota icon dikhata hai. -->
+                            <i class="fab fa-whatsapp"></i>
+                        <!-- Yeh link band karta hai. -->
+                        </a>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                <!-- Yeh dabba band karta hai. -->
+                </div>
+                
+               <!-- Profile ki jagah abhi sample skill badges aur code icon dikhaye jate hain. -->
+               
+                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                <div class="hero-image-wrapper">
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="hero-image-container">
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="profile-image-glow"></div>
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="profile-image-frame">
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; id JavaScript ko iski pehchan deta hai. -->
+                            <div class="profile-image" id="profileImage">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="profile-placeholder">
+                                    <!-- Yeh chhota icon dikhata hai. -->
+                                    <i class="fas fa-code"></i>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="skill-orbit" role="img" aria-label="Skills orbiting the profile: HTML, CSS, JavaScript, Node.js, React.js, SEO, AEO, UX/UI, MySQL, MongoDB, Express.js, Three.js, Tailwind CSS, and Next.js.">
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="skill-orbit__ring skill-orbit__ring--outer"></div>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="skill-orbit__ring skill-orbit__ring--inner"></div>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="skill-orbit__track" aria-hidden="true">
+                                <!-- Yeh chhota text hissa "HTML" wala text dikhata hai. -->
+                                <span class="skill-orbit__item" style="--angle: 0deg"><span class="skill-orbit__chip skill--html"><i class="fab fa-html5"></i>HTML</span></span>
+                                <!-- Yeh chhota text hissa "CSS" wala text dikhata hai. -->
+                                <span class="skill-orbit__item" style="--angle: 25.714deg"><span class="skill-orbit__chip skill--css"><i class="fab fa-css3-alt"></i>CSS</span></span>
+                                <!-- Yeh chhota text hissa "JavaScript" wala text dikhata hai. -->
+                                <span class="skill-orbit__item" style="--angle: 51.429deg"><span class="skill-orbit__chip skill--javascript"><i class="fab fa-js"></i>JavaScript</span></span>
+                                <!-- Yeh chhota text hissa "Node.js" wala text dikhata hai. -->
+                                <span class="skill-orbit__item" style="--angle: 77.143deg"><span class="skill-orbit__chip skill--node"><i class="fab fa-node-js"></i>Node.js</span></span>
+                                <!-- Yeh chhota text hissa "React.js" wala text dikhata hai. -->
+                                <span class="skill-orbit__item" style="--angle: 102.857deg"><span class="skill-orbit__chip skill--react"><i class="fab fa-react"></i>React.js</span></span>
+                                <!-- Yeh chhota text hissa "SEO" wala text dikhata hai. -->
+                                <span class="skill-orbit__item" style="--angle: 128.571deg"><span class="skill-orbit__chip skill--seo"><i class="fas fa-magnifying-glass-chart"></i>SEO</span></span>
+                                <!-- Yeh chhota text hissa "AEO" wala text dikhata hai. -->
+                                <span class="skill-orbit__item" style="--angle: 154.286deg"><span class="skill-orbit__chip skill--aeo"><i class="fas fa-wand-magic-sparkles"></i>AEO</span></span>
+                                <!-- Yeh chhota text hissa "UX/UI" wala text dikhata hai. -->
+                                <span class="skill-orbit__item" style="--angle: 180deg"><span class="skill-orbit__chip skill--ux"><i class="fas fa-bezier-curve"></i>UX/UI</span></span>
+                                <!-- Yeh chhota text hissa "MySQL" wala text dikhata hai. -->
+                                <span class="skill-orbit__item" style="--angle: 205.714deg"><span class="skill-orbit__chip skill--mysql"><i class="fas fa-database"></i>MySQL</span></span>
+                                <!-- Yeh chhota text hissa "MongoDB" wala text dikhata hai. -->
+                                <span class="skill-orbit__item" style="--angle: 231.429deg"><span class="skill-orbit__chip skill--mongodb"><i class="fas fa-leaf"></i>MongoDB</span></span>
+                                <!-- Yeh chhota text hissa "Express.js" wala text dikhata hai. -->
+                                <span class="skill-orbit__item" style="--angle: 257.143deg"><span class="skill-orbit__chip skill--express"><i class="fas fa-server"></i>Express.js</span></span>
+                                <!-- Yeh chhota text hissa "Three.js" wala text dikhata hai. -->
+                                <span class="skill-orbit__item" style="--angle: 282.857deg"><span class="skill-orbit__chip skill--three"><i class="fas fa-cube"></i>Three.js</span></span>
+                                <!-- Yeh chhota text hissa "Tailwind CSS" wala text dikhata hai. -->
+                                <span class="skill-orbit__item" style="--angle: 308.571deg"><span class="skill-orbit__chip skill--tailwind"><i class="fas fa-wind"></i>Tailwind CSS</span></span>
+                                <!-- Yeh chhota text hissa "Next.js" wala text dikhata hai. -->
+                                <span class="skill-orbit__item" style="--angle: 334.286deg"><span class="skill-orbit__chip skill--next"><i class="fas fa-arrow-trend-up"></i>Next.js</span></span>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh chhota text hissa "SKILLS IN ORBIT" wala text dikhata hai. -->
+                            <span class="skill-orbit__caption"><span></span>SKILLS IN ORBIT</span>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                <!-- Yeh dabba band karta hai. -->
+                </div>
+            <!-- Yeh dabba band karta hai. -->
+            </div>
+            
+            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+            <div class="scroll-indicator">
+                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                <div class="scroll-mouse">
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="scroll-wheel"></div>
+                <!-- Yeh dabba band karta hai. -->
+                </div>
+                <!-- Yeh chhota text hissa "Scroll Down" wala text dikhata hai. -->
+                <span class="scroll-text" data-text-en="Scroll Down" data-text-ar="انتقل للأسفل">Scroll Down</span>
+            <!-- Yeh dabba band karta hai. -->
+            </div>
+        <!-- Yeh page ka hissa band karta hai. -->
+        </section>
+
+        <!-- Yeh side ka hissa shuru karta hai; class naam se style.css is hissa ka look chunta hai. -->
+        <aside class="digital-presence-band" aria-labelledby="digital-presence-title">
+            <!-- Yeh is page hissa ka content rakhne wala dabba shuru karta hai. -->
+            <div class="section-container">
+                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                <div class="digital-presence-layout">
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="digital-presence-visual" aria-hidden="true">
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="digital-presence-orbit">
+                            <!-- Yeh chhota text hissa "ALWAYS AVAILABLE" wala text dikhata hai. -->
+                            <span class="digital-presence-status"><span></span> ALWAYS AVAILABLE</span>
+                            <!-- Yeh zor wala text "24/7" wala text dikhata hai. -->
+                            <strong>24/7</strong>
+                            <!-- Yeh chhota text hissa "YOUR VIRTUAL HQ" wala text dikhata hai. -->
+                            <span class="digital-presence-label">YOUR VIRTUAL HQ</span>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                        <!-- Yeh paragraph "ONE DIGITAL HOME · WORLDWIDE REACH" wala text dikhata hai. -->
+                        <p class="digital-presence-caption">ONE DIGITAL HOME · WORLDWIDE REACH</p>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="digital-presence-copy">
+                        <!-- Yeh paragraph "BUILT FOR TRUST. OPEN TO THE WORLD." wala text dikhata hai. -->
+                        <p class="digital-presence-eyebrow">BUILT FOR TRUST. OPEN TO THE WORLD.</p>
+                        <!-- Yeh title "A digital bridge between your business and the world." wala text dikhata hai. -->
+                        <h2 id="digital-presence-title">A digital bridge between your business and the world.</h2>
+                        <!-- Yeh paragraph ka text dikhata hai. -->
+                        <p>We don't just build websites to increase your sub-brand's profits; we build powerful digital bridges that establish absolute trust between you and your customers. Your website will be an interactive, 24/7 virtual headquarters available to the entire world—showcasing every single update, product, and service of your business. It ensures your clients can reach you seamlessly, anytime, anywhere.</p>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                <!-- Yeh dabba band karta hai. -->
+                </div>
+            <!-- Yeh dabba band karta hai. -->
+            </div>
+        <!-- Yeh side ka hissa wala hissa band karta hai. -->
+        </aside>
+
+       <!-- About section mein shakhs ka ta'aruf, numbers aur code ki misaal dikhayi jati hai. -->
+       
+        <!-- Yeh about page hissa shuru karta hai. -->
+        <section id="about" class="section about-section">
+            <!-- Yeh is page hissa ka content rakhne wala dabba shuru karta hai. -->
+            <div class="section-container">
+                <!-- Yeh is page hissa ka title wala upar ka hissa shuru karta hai. -->
+                <div class="section-header">
+                    <!-- Yeh chhota text hissa "01" wala text dikhata hai. -->
+                    <span class="section-number">01</span>
+                    <!-- Yeh title shuru karta hai; class naam se style.css is hissa ka look chunta hai. -->
+                    <h2 class="section-title">
+                        <!-- Yeh chhota text hissa "<" wala text dikhata hai. -->
+                        <span class="title-bracket">&lt;</span>
+                        <!-- Yeh chhota text hissa "About Me" wala text dikhata hai. -->
+                        <span class="title-text" data-text-en="About Me" data-text-ar="عني">About Me</span>
+                        <!-- Yeh chhota text hissa "/>" wala text dikhata hai. -->
+                        <span class="title-bracket">/&gt;</span>
+                    <!-- Yeh title wala hissa band karta hai. -->
+                    </h2>
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="section-line"></div>
+                <!-- Yeh dabba band karta hai. -->
+                </div>
+                
+               <!-- Ta'aruf aur statistics ek taraf, developer object ki sajawati misaal doosri taraf hai. -->
+               
+                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                <div class="about-content">
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="about-text-wrapper">
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="about-intro">
+                            <!-- Yeh paragraph shuru karta hai; class naam se style.css is hissa ka look chunta hai; data wali value JavaScript ke kaam aati hai. -->
+                            <p class="about-text" data-text-en="I’m Uzair, a Full Stack Web Developer, UI/UX Designer, and SEO Expert. I bring the whole digital experience together—from a thoughtful user interface and dependable development to search-ready structure—so your website looks professional, works smoothly, and is built to reach the right audience. I take ownership of the details, communicate clearly, and keep you informed at every step. You can trust me to treat your project with care and deliver work I’m proud to put my name on." data-text-ar="أنا عزير، مطور ويب Full Stack ومصمم UI/UX وخبير SEO. أجمع تجربة رقمية متكاملة من التصميم الواضح إلى التطوير الموثوق وتحسين الظهور في البحث. أعتني بالتفاصيل، وأتواصل بوضوح، وأبقيك على اطلاع في كل خطوة.">
+                                <!-- Yeh alfaaz website par dikhaye jate hain. -->
+                                I’m Uzair, a Full Stack Web Developer, UI/UX Designer, and SEO Expert. I bring the whole digital experience together—from a thoughtful user interface and dependable development to search-ready structure—so your website looks professional, works smoothly, and is built to reach the right audience. I take ownership of the details, communicate clearly, and keep you informed at every step. You can trust me to treat your project with care and deliver work I’m proud to put my name on.
+                            <!-- Yeh paragraph band karta hai. -->
+                            </p>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                        
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="about-stats">
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="stat-item">
+                                <!-- Yeh dabba "01" wala text dikhata hai. -->
+                                <div class="stat-number">01</div>
+                                <!-- Yeh dabba "A personal space" wala text dikhata hai. -->
+                                <div class="stat-label" data-text-en="A personal space" data-text-ar="مساحة شخصية">A personal space</div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="stat-item">
+                                <!-- Yeh dabba "02" wala text dikhata hai. -->
+                                <div class="stat-number">02</div>
+                                <!-- Yeh dabba "Curious Mind" wala text dikhata hai. -->
+                                <div class="stat-label" data-text-en="Curious Mind" data-text-ar="عقل فضولي">Curious Mind</div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="stat-item">
+                                <!-- Yeh dabba "03" wala text dikhata hai. -->
+                                <div class="stat-number">03</div>
+                                <!-- Yeh dabba "Always in progress" wala text dikhata hai. -->
+                                <div class="stat-label" data-text-en="Always in progress" data-text-ar="دائماً قيد التطوير">Always in progress</div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                    
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="about-image-wrapper">
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="about-image-container">
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="code-block">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="code-line">
+                                    <!-- Yeh chhota text hissa "const" wala text dikhata hai. -->
+                                    <span class="code-keyword">const</span>
+                                    <!-- Yeh chhota text hissa "developer" wala text dikhata hai. -->
+                                    <span class="code-variable">developer</span>
+                                    <!-- Yeh chhota text hissa "=" wala text dikhata hai. -->
+                                    <span class="code-operator">=</span>
+                                    <!-- Yeh chhota text hissa "{" wala text dikhata hai. -->
+                                    <span class="code-brace">{</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="code-line indent">
+                                    <!-- Yeh chhota text hissa "name" wala text dikhata hai. -->
+                                    <span class="code-property">name</span>
+                                    <!-- Yeh chhota text hissa ":" wala text dikhata hai. -->
+                                    <span class="code-operator">:</span>
+                                    <!-- Yeh chhota text hissa "'Uzair-Dev-Coder'" wala text dikhata hai. -->
+                                    <span class="code-string">'Uzair-Dev-Coder'</span>
+                                    <!-- Yeh chhota text hissa "," wala text dikhata hai. -->
+                                    <span class="code-comma">,</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="code-line indent">
+                                    <!-- Yeh chhota text hissa "skills" wala text dikhata hai. -->
+                                    <span class="code-property">skills</span>
+                                    <!-- Yeh chhota text hissa ":" wala text dikhata hai. -->
+                                    <span class="code-operator">:</span>
+                                    <!-- Yeh chhota text hissa "[" wala text dikhata hai. -->
+                                    <span class="code-bracket">[</span>
+                                    <!-- Yeh chhota text hissa "'React'" wala text dikhata hai. -->
+                                    <span class="code-string">'React'</span>
+                                    <!-- Yeh chhota text hissa "," wala text dikhata hai. -->
+                                    <span class="code-comma">,</span>
+                                    <!-- Yeh chhota text hissa "'Node.js'" wala text dikhata hai. -->
+                                    <span class="code-string">'Node.js'</span>
+                                    <!-- Yeh chhota text hissa "," wala text dikhata hai. -->
+                                    <span class="code-comma">,</span>
+                                    <!-- Yeh chhota text hissa "'TypeScript'" wala text dikhata hai. -->
+                                    <span class="code-string">'TypeScript'</span>
+                                    <!-- Yeh chhota text hissa "]" wala text dikhata hai. -->
+                                    <span class="code-bracket">]</span>
+                                    <!-- Yeh chhota text hissa "," wala text dikhata hai. -->
+                                    <span class="code-comma">,</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="code-line indent">
+                                    <!-- Yeh chhota text hissa "passion" wala text dikhata hai. -->
+                                    <span class="code-property">passion</span>
+                                    <!-- Yeh chhota text hissa ":" wala text dikhata hai. -->
+                                    <span class="code-operator">:</span>
+                                    <!-- Yeh chhota text hissa "'Coding'" wala text dikhata hai. -->
+                                    <span class="code-string">'Coding'</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="code-line">
+                                    <!-- Yeh chhota text hissa "}" wala text dikhata hai. -->
+                                    <span class="code-brace">}</span>
+                                    <!-- Yeh chhota text hissa ";" wala text dikhata hai. -->
+                                    <span class="code-semicolon">;</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                <!-- Yeh dabba band karta hai. -->
+                </div>
+            <!-- Yeh dabba band karta hai. -->
+            </div>
+        <!-- Yeh page ka hissa band karta hai. -->
+        </section>
+
+       <!-- Skills section har skill ka naam aur data-percent mein uski dikhayi jane wali salahiyat rakhta hai. -->
+       
+        <!-- Yeh skills page hissa shuru karta hai. -->
+        <section id="skills" class="section skills-section">
+            <!-- Yeh is page hissa ka content rakhne wala dabba shuru karta hai. -->
+            <div class="section-container">
+                <!-- Yeh is page hissa ka title wala upar ka hissa shuru karta hai. -->
+                <div class="section-header">
+                    <!-- Yeh chhota text hissa "02" wala text dikhata hai. -->
+                    <span class="section-number">02</span>
+                    <!-- Yeh title shuru karta hai; class naam se style.css is hissa ka look chunta hai. -->
+                    <h2 class="section-title">
+                        <!-- Yeh chhota text hissa "<" wala text dikhata hai. -->
+                        <span class="title-bracket">&lt;</span>
+                        <!-- Yeh chhota text hissa "Skills" wala text dikhata hai. -->
+                        <span class="title-text" data-text-en="Skills" data-text-ar="المهارات">Skills</span>
+                        <!-- Yeh chhota text hissa "/>" wala text dikhata hai. -->
+                        <span class="title-bracket">/&gt;</span>
+                    <!-- Yeh title wala hissa band karta hai. -->
+                    </h2>
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="section-line"></div>
+                <!-- Yeh dabba band karta hai. -->
+                </div>
+                
+               <!-- Har category ke andar skill items hain; JS scroll par progress bar ko animate karta hai. -->
+               
+                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                <div class="skills-grid">
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="skill-category">
+                        <!-- Yeh chhota title "Frontend" wala text dikhata hai. -->
+                        <h3 class="category-title" data-text-en="Frontend" data-text-ar="الواجهة الأمامية">Frontend</h3>
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="skill-items">
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="React" data-percent="95">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "React" wala text dikhata hai. -->
+                                    <span class="skill-name">React</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar">
+                                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                    <div class="skill-progress"></div>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="Vue.js" data-percent="85">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "Vue.js" wala text dikhata hai. -->
+                                    <span class="skill-name">Vue.js</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar">
+                                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                    <div class="skill-progress"></div>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="TypeScript" data-percent="90">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "TypeScript" wala text dikhata hai. -->
+                                    <span class="skill-name">TypeScript</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar">
+                                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                    <div class="skill-progress"></div>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="Next.js" data-percent="87">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "Next.js" wala text dikhata hai. -->
+                                    <span class="skill-name">Next.js</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar">
+                                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                    <div class="skill-progress"></div>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="Tailwind CSS" data-percent="87">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "Tailwind CSS" wala text dikhata hai. -->
+                                    <span class="skill-name">Tailwind CSS</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar"><div class="skill-progress"></div></div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="Three.js" data-percent="87">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "Three.js" wala text dikhata hai. -->
+                                    <span class="skill-name">Three.js</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar"><div class="skill-progress"></div></div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                    
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="skill-category">
+                        <!-- Yeh chhota title "Backend" wala text dikhata hai. -->
+                        <h3 class="category-title" data-text-en="Backend" data-text-ar="الخلفية">Backend</h3>
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="skill-items">
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="Node.js" data-percent="92">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "Node.js" wala text dikhata hai. -->
+                                    <span class="skill-name">Node.js</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar">
+                                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                    <div class="skill-progress"></div>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="Express.js" data-percent="87">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "Express.js" wala text dikhata hai. -->
+                                    <span class="skill-name">Express.js</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar">
+                                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                    <div class="skill-progress"></div>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="MongoDB" data-percent="87">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "MongoDB" wala text dikhata hai. -->
+                                    <span class="skill-name">MongoDB</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar">
+                                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                    <div class="skill-progress"></div>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="MySQL" data-percent="87">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "MySQL" wala text dikhata hai. -->
+                                    <span class="skill-name">MySQL</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar"><div class="skill-progress"></div></div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="PostgreSQL" data-percent="80">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "PostgreSQL" wala text dikhata hai. -->
+                                    <span class="skill-name">PostgreSQL</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar">
+                                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                    <div class="skill-progress"></div>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                    
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="skill-category">
+                        <!-- Yeh chhota title "Tools & Others" wala text dikhata hai. -->
+                        <h3 class="category-title" data-text-en="Tools & Others" data-text-ar="الأدوات وغيرها">Tools & Others</h3>
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="skill-items">
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="Git" data-percent="95">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "Git" wala text dikhata hai. -->
+                                    <span class="skill-name">Git</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar">
+                                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                    <div class="skill-progress"></div>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="Docker" data-percent="75">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "Docker" wala text dikhata hai. -->
+                                    <span class="skill-name">Docker</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar">
+                                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                    <div class="skill-progress"></div>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="AWS" data-percent="70">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "AWS" wala text dikhata hai. -->
+                                    <span class="skill-name">AWS</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar">
+                                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                    <div class="skill-progress"></div>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="Figma" data-percent="88">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "Figma" wala text dikhata hai. -->
+                                    <span class="skill-name">Figma</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar">
+                                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                    <div class="skill-progress"></div>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="skill-category">
+                        <!-- Yeh chhota title "MASTERED IN / EXPERT IN" wala text dikhata hai. -->
+                        <h3 class="category-title" data-text-en="MASTERED IN / EXPERT IN" data-text-ar="متقن في / خبير في">MASTERED IN / EXPERT IN</h3>
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="skill-items">
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="HTML" data-percent="100">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "HTML" wala text dikhata hai. -->
+                                    <span class="skill-name">HTML</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar">
+                                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                    <div class="skill-progress"></div>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="CSS" data-percent="100">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "CSS" wala text dikhata hai. -->
+                                    <span class="skill-name">CSS</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar">
+                                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                    <div class="skill-progress"></div>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="JAVASCRIPT" data-percent="100">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "JAVASCRIPT" wala text dikhata hai. -->
+                                    <span class="skill-name">JAVASCRIPT</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar">
+                                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                    <div class="skill-progress"></div>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class CSS ko iska look pehchanne mein madad deti hai; data wali value JavaScript ke kaam aati hai. -->
+                            <div class="skill-item" data-skill="DOM" data-percent="100">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-header">
+                                    <!-- Yeh chhota text hissa "DOM" wala text dikhata hai. -->
+                                    <span class="skill-name">DOM</span>
+                                    <!-- Yeh chhota text hissa "0%" wala text dikhata hai. -->
+                                    <span class="skill-percent">0%</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="skill-bar">
+                                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                    <div class="skill-progress"></div>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                <!-- Yeh dabba band karta hai. -->
+                </div>
+            <!-- Yeh dabba band karta hai. -->
+            </div>
+        <!-- Yeh page ka hissa band karta hai. -->
+        </section>
+
+       <!-- Experience section naukriyon ko timeline ki tarah nayi se purani tarteeb mein dikhata hai. -->
+       
+        <!-- Yeh experience page hissa shuru karta hai. -->
+        <section id="experience" class="section experience-section">
+            <!-- Yeh is page hissa ka content rakhne wala dabba shuru karta hai. -->
+            <div class="section-container">
+                <!-- Yeh is page hissa ka title wala upar ka hissa shuru karta hai. -->
+                <div class="section-header">
+                    <!-- Yeh chhota text hissa "03" wala text dikhata hai. -->
+                    <span class="section-number">03</span>
+                    <!-- Yeh title shuru karta hai; class naam se style.css is hissa ka look chunta hai. -->
+                    <h2 class="section-title">
+                        <!-- Yeh chhota text hissa "<" wala text dikhata hai. -->
+                        <span class="title-bracket">&lt;</span>
+                        <!-- Yeh chhota text hissa "My Approach" wala text dikhata hai. -->
+                        <span class="title-text" data-text-en="My Approach" data-text-ar="منهجي">My Approach</span>
+                        <!-- Yeh chhota text hissa "/>" wala text dikhata hai. -->
+                        <span class="title-bracket">/&gt;</span>
+                    <!-- Yeh title wala hissa band karta hai. -->
+                    </h2>
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="section-line"></div>
+                <!-- Yeh dabba band karta hai. -->
+                </div>
+                
+               <!-- Har timeline-item ek job hai; andar ka text, achievements aur tags us job ki tafseel hain. -->
+               
+                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                <div class="timeline">
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="timeline-item">
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="timeline-marker"></div>
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="timeline-content">
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="timeline-header">
+                                <!-- Yeh dabba "01 / DISCOVER" wala text dikhata hai. -->
+                                <div class="timeline-year">01 / DISCOVER</div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh chhota title "Start with the why" wala text dikhata hai. -->
+                            <h3 class="timeline-title">Start with the why</h3>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="timeline-company">
+                                <!-- Yeh chhota icon dikhata hai. -->
+                                <i class="fas fa-building"></i>
+                                <!-- Yeh alfaaz website par dikhaye jate hain. -->
+                                Understand the goal
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh paragraph ka text dikhata hai. -->
+                            <p class="timeline-description">I get clear on the people, the problem, and what a useful outcome should feel like.</p>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="timeline-achievements">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="achievement-item">
+                                    <!-- Yeh chhota icon dikhata hai. -->
+                                    <i class="fas fa-check-circle"></i>
+                                    <!-- Yeh chhota text hissa "Ask the right questions" wala text dikhata hai. -->
+                                    <span data-text-en="Ask the right questions" data-text-ar="قيادة فريق من 5 مطورين">Ask the right questions</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="achievement-item">
+                                    <!-- Yeh chhota icon dikhata hai. -->
+                                    <i class="fas fa-check-circle"></i>
+                                    <!-- Yeh chhota text hissa "Find the main idea" wala text dikhata hai. -->
+                                    <span data-text-en="Find the main idea" data-text-ar="تحسين الأداء بنسبة 40%">Find the main idea</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="achievement-item">
+                                    <!-- Yeh chhota icon dikhata hai. -->
+                                    <i class="fas fa-check-circle"></i>
+                                    <!-- Yeh chhota text hissa "Set a clear direction" wala text dikhata hai. -->
+                                    <span data-text-en="Set a clear direction" data-text-ar="نشر أكثر من 20 تطبيق إنتاجي">Set a clear direction</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="timeline-tags">
+                                <!-- Yeh chhota text hissa "React" wala text dikhata hai. -->
+                                <span class="tag">React</span>
+                                <!-- Yeh chhota text hissa "Node.js" wala text dikhata hai. -->
+                                <span class="tag">Node.js</span>
+                                <!-- Yeh chhota text hissa "TypeScript" wala text dikhata hai. -->
+                                <span class="tag">TypeScript</span>
+                                <!-- Yeh chhota text hissa "MongoDB" wala text dikhata hai. -->
+                                <span class="tag">MongoDB</span>
+                                <!-- Yeh chhota text hissa "Docker" wala text dikhata hai. -->
+                                <span class="tag">Docker</span>
+                                <!-- Yeh chhota text hissa "AWS" wala text dikhata hai. -->
+                                <span class="tag">AWS</span>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                    
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="timeline-item">
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="timeline-marker"></div>
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="timeline-content">
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="timeline-header">
+                                <!-- Yeh dabba "02 / DESIGN" wala text dikhata hai. -->
+                                <div class="timeline-year">02 / DESIGN</div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh chhota title "Shape the idea" wala text dikhata hai. -->
+                            <h3 class="timeline-title">Shape the idea</h3>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="timeline-company">
+                                <!-- Yeh chhota icon dikhata hai. -->
+                                <i class="fas fa-building"></i>
+                                <!-- Yeh alfaaz website par dikhaye jate hain. -->
+                                Make it feel clear
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh paragraph ka text dikhata hai. -->
+                            <p class="timeline-description">I explore the layout, words, and visual details until everything feels simple and considered.</p>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="timeline-achievements">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="achievement-item">
+                                    <!-- Yeh chhota icon dikhata hai. -->
+                                    <i class="fas fa-check-circle"></i>
+                                    <!-- Yeh chhota text hissa "Keep the experience clear" wala text dikhata hai. -->
+                                    <span data-text-en="Keep the experience clear" data-text-ar="بناء أكثر من 15 موقع متجاوب">Keep the experience clear</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="achievement-item">
+                                    <!-- Yeh chhota icon dikhata hai. -->
+                                    <i class="fas fa-check-circle"></i>
+                                    <!-- Yeh chhota text hissa "Pay attention to the details" wala text dikhata hai. -->
+                                    <span data-text-en="Pay attention to the details" data-text-ar="تقليل وقت التحميل بنسبة 50%">Pay attention to the details</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="timeline-tags">
+                                <!-- Yeh chhota text hissa "React" wala text dikhata hai. -->
+                                <span class="tag">React</span>
+                                <!-- Yeh chhota text hissa "Vue.js" wala text dikhata hai. -->
+                                <span class="tag">Vue.js</span>
+                                <!-- Yeh chhota text hissa "JavaScript" wala text dikhata hai. -->
+                                <span class="tag">JavaScript</span>
+                                <!-- Yeh chhota text hissa "SASS" wala text dikhata hai. -->
+                                <span class="tag">SASS</span>
+                                <!-- Yeh chhota text hissa "Webpack" wala text dikhata hai. -->
+                                <span class="tag">Webpack</span>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                    
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="timeline-item">
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="timeline-marker"></div>
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="timeline-content">
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="timeline-header">
+                                <!-- Yeh dabba "03 / BUILD" wala text dikhata hai. -->
+                                <div class="timeline-year">03 / BUILD</div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh chhota title "Build with care" wala text dikhata hai. -->
+                            <h3 class="timeline-title">Build with care</h3>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="timeline-company">
+                                <!-- Yeh chhota icon dikhata hai. -->
+                                <i class="fas fa-building"></i>
+                                <!-- Yeh alfaaz website par dikhaye jate hain. -->
+                                Refine the details
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh paragraph ka text dikhata hai. -->
+                            <p class="timeline-description">I bring the pieces together, test the small things, and keep refining until it feels right.</p>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="timeline-achievements">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="achievement-item">
+                                    <!-- Yeh chhota icon dikhata hai. -->
+                                    <i class="fas fa-check-circle"></i>
+                                    <!-- Yeh chhota text hissa "Build for real use" wala text dikhata hai. -->
+                                    <span data-text-en="Build for real use" data-text-ar="إكمال أكثر من 30 مشروع">Build for real use</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="achievement-item">
+                                    <!-- Yeh chhota icon dikhata hai. -->
+                                    <i class="fas fa-check-circle"></i>
+                                    <!-- Yeh chhota text hissa "Refine as I go" wala text dikhata hai. -->
+                                    <span data-text-en="Refine as I go" data-text-ar="تعلم إطارات العمل الحديثة">Refine as I go</span>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="timeline-tags">
+                                <!-- Yeh chhota text hissa "HTML" wala text dikhata hai. -->
+                                <span class="tag">HTML</span>
+                                <!-- Yeh chhota text hissa "CSS" wala text dikhata hai. -->
+                                <span class="tag">CSS</span>
+                                <!-- Yeh chhota text hissa "JavaScript" wala text dikhata hai. -->
+                                <span class="tag">JavaScript</span>
+                                <!-- Yeh chhota text hissa "jQuery" wala text dikhata hai. -->
+                                <span class="tag">jQuery</span>
+                                <!-- Yeh chhota text hissa "Bootstrap" wala text dikhata hai. -->
+                                <span class="tag">Bootstrap</span>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                <!-- Yeh dabba band karta hai. -->
+                </div>
+            <!-- Yeh dabba band karta hai. -->
+            </div>
+        <!-- Yeh page ka hissa band karta hai. -->
+        </section>
+
+       <!-- Projects section project cards, unki tafseel aur technology tags dikhata hai. -->
+       
+        <!-- Yeh projects page hissa shuru karta hai. -->
+        <section id="projects" class="section projects-section">
+            <!-- Yeh is page hissa ka content rakhne wala dabba shuru karta hai. -->
+            <div class="section-container">
+                <!-- Yeh is page hissa ka title wala upar ka hissa shuru karta hai. -->
+                <div class="section-header">
+                    <!-- Yeh chhota text hissa "04" wala text dikhata hai. -->
+                    <span class="section-number">04</span>
+                    <!-- Yeh title shuru karta hai; class naam se style.css is hissa ka look chunta hai. -->
+                    <h2 class="section-title">
+                        <!-- Yeh chhota text hissa "<" wala text dikhata hai. -->
+                        <span class="title-bracket">&lt;</span>
+                        <!-- Yeh chhota text hissa "Projects" wala text dikhata hai. -->
+                        <span class="title-text" data-text-en="Projects" data-text-ar="المشاريع">Projects</span>
+                        <!-- Yeh chhota text hissa "/>" wala text dikhata hai. -->
+                        <span class="title-bracket">/&gt;</span>
+                    <!-- Yeh title wala hissa band karta hai. -->
+                    </h2>
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="section-line"></div>
+                <!-- Yeh dabba band karta hai. -->
+                </div>
+
+                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                <div class="projects-intro">
+                    <!-- Yeh chhota title "We Think, We Design, We Launch Your Products & Digital Projects." wala text dikhata hai. -->
+                    <h3 class="projects-intro-title">We Think, We Design, We Launch Your Products &amp; Digital Projects.</h3>
+                    <!-- Yeh paragraph ka text dikhata hai. -->
+                    <p class="projects-intro-lead">Our design and digital solutions exist to elevate your brand, secure your customers' trust, and drive real growth through passionate, professional web craftsmanship.</p>
+                    <!-- Yeh paragraph ka text dikhata hai. -->
+                    <p class="projects-intro-detail">Our core philosophy is simple: <strong>We think, we design, and we launch your product to perfection.</strong> Every website we build exists to champion your brand and secure your customers' confidence through high-performance, passionate, and professional engineering.</p>
+                <!-- Yeh dabba band karta hai. -->
+                </div>
+                
+               <!-- Har card local project preview aur uske main JavaScript source se link hota hai. -->
+               
+                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                <div class="projects-grid">
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="project-card">
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="project-image">
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="project-overlay">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="project-links">
+                                    <!-- Yeh clickable link dikhata hai; href batata hai ke link A1%20Restaurant/index.html par le jata hai. -->
+                                    <a href="A1%20Restaurant/index.html" class="project-link" title="View A1 Restaurant project" aria-label="View A1 Restaurant project">
+                                        <!-- Yeh chhota icon dikhata hai. -->
+                                        <i class="fas fa-external-link-alt"></i>
+                                    <!-- Yeh link band karta hai. -->
+                                    </a>
+                                    <!-- Yeh clickable link dikhata hai; href batata hai ke link A1%20Restaurant/script.js par le jata hai. -->
+                                    <a href="A1%20Restaurant/script.js" class="project-link" title="View A1 Restaurant JavaScript" aria-label="View A1 Restaurant JavaScript">
+                                        <!-- Yeh chhota icon dikhata hai. -->
+                                        <i class="fas fa-code"></i>
+                                    <!-- Yeh link band karta hai. -->
+                                    </a>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="project-placeholder">
+                                <!-- Yeh chhota icon dikhata hai. -->
+                                <i class="fas fa-utensils"></i>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="project-content">
+                            <!-- Yeh chhota title "A1 Restaurant" wala text dikhata hai. -->
+                            <h3 class="project-title">A1 Restaurant</h3>
+                            <!-- Yeh paragraph ka text dikhata hai. -->
+                            <p class="project-description">A custom responsive web experience for a local restaurant, designed to make its food, location, and ordering details easy to explore.</p>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="project-tags">
+                                <!-- Yeh chhota text hissa "HTML" wala text dikhata hai. -->
+                                <span class="tag">HTML</span>
+                                <!-- Yeh chhota text hissa "CSS" wala text dikhata hai. -->
+                                <span class="tag">CSS</span>
+                                <!-- Yeh chhota text hissa "JavaScript" wala text dikhata hai. -->
+                                <span class="tag">JavaScript</span>
+                                <!-- Yeh chhota text hissa "Local SEO" wala text dikhata hai. -->
+                                <span class="tag">Local SEO</span>
+                                <!-- Yeh chhota text hissa "JSON-LD" wala text dikhata hai. -->
+                                <span class="tag">JSON-LD</span>
+                                <!-- Yeh chhota text hissa "Google Maps" wala text dikhata hai. -->
+                                <span class="tag">Google Maps</span>
+                                <!-- Yeh chhota text hissa "WhatsApp Ordering" wala text dikhata hai. -->
+                                <span class="tag">WhatsApp Ordering</span>
+                                <!-- Yeh chhota text hissa "Dark Mode" wala text dikhata hai. -->
+                                <span class="tag">Dark Mode</span>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh paragraph "And Much More Skills Added" wala text dikhata hai. -->
+                            <p class="project-more-skills">And Much More Skills Added</p>
+                            <!-- Yeh clickable link dikhata hai; href batata hai ke link A1%20Restaurant/index.html par le jata hai. -->
+                            <a href="A1%20Restaurant/index.html" class="project-open-link" target="_blank" rel="noopener">
+                                <!-- Yeh chhota icon dikhata hai. -->
+                                Open Project <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            <!-- Yeh link band karta hai. -->
+                            </a>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                    
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="project-card">
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="project-image">
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="project-overlay">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="project-links">
+                                    <!-- Yeh clickable link dikhata hai; href batata hai ke link Chai%20Jaan/index.html par le jata hai. -->
+                                    <a href="Chai%20Jaan/index.html" class="project-link" title="View Chai Jaan project" aria-label="View Chai Jaan project">
+                                        <!-- Yeh chhota icon dikhata hai. -->
+                                        <i class="fas fa-external-link-alt"></i>
+                                    <!-- Yeh link band karta hai. -->
+                                    </a>
+                                    <!-- Yeh clickable link dikhata hai; href batata hai ke link Chai%20Jaan/app.js par le jata hai. -->
+                                    <a href="Chai%20Jaan/app.js" class="project-link" title="View Chai Jaan JavaScript" aria-label="View Chai Jaan JavaScript">
+                                        <!-- Yeh chhota icon dikhata hai. -->
+                                        <i class="fas fa-code"></i>
+                                    <!-- Yeh link band karta hai. -->
+                                    </a>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="project-placeholder">
+                                <!-- Yeh chhota icon dikhata hai. -->
+                                <i class="fas fa-mug-hot"></i>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="project-content">
+                            <!-- Yeh chhota title "Chai Jaan" wala text dikhata hai. -->
+                            <h3 class="project-title">Chai Jaan</h3>
+                            <!-- Yeh paragraph ka text dikhata hai. -->
+                            <p class="project-description">A café-inspired web project with a modern layout and thoughtful UI details that bring the warmth of the café experience online.</p>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="project-tags">
+                                <!-- Yeh chhota text hissa "HTML" wala text dikhata hai. -->
+                                <span class="tag">HTML</span>
+                                <!-- Yeh chhota text hissa "CSS" wala text dikhata hai. -->
+                                <span class="tag">CSS</span>
+                                <!-- Yeh chhota text hissa "JavaScript" wala text dikhata hai. -->
+                                <span class="tag">JavaScript</span>
+                                <!-- Yeh chhota text hissa "Menu Search & Filters" wala text dikhata hai. -->
+                                <span class="tag">Menu Search &amp; Filters</span>
+                                <!-- Yeh chhota text hissa "Shopping Cart" wala text dikhata hai. -->
+                                <span class="tag">Shopping Cart</span>
+                                <!-- Yeh chhota text hissa "Leaflet Maps" wala text dikhata hai. -->
+                                <span class="tag">Leaflet Maps</span>
+                                <!-- Yeh chhota text hissa "Delivery Zones" wala text dikhata hai. -->
+                                <span class="tag">Delivery Zones</span>
+                                <!-- Yeh chhota text hissa "WhatsApp Ordering" wala text dikhata hai. -->
+                                <span class="tag">WhatsApp Ordering</span>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh paragraph "And Much More Skills Added" wala text dikhata hai. -->
+                            <p class="project-more-skills">And Much More Skills Added</p>
+                            <!-- Yeh clickable link dikhata hai; href batata hai ke link Chai%20Jaan/index.html par le jata hai. -->
+                            <a href="Chai%20Jaan/index.html" class="project-open-link" target="_blank" rel="noopener">
+                                <!-- Yeh chhota icon dikhata hai. -->
+                                Open Project <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            <!-- Yeh link band karta hai. -->
+                            </a>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                    
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="project-card">
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="project-image">
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="project-overlay">
+                                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                                <div class="project-links">
+                                    <!-- Yeh clickable link dikhata hai; href batata hai ke link Pizza%20Mars/index.html par le jata hai. -->
+                                    <a href="Pizza%20Mars/index.html" class="project-link" title="View Pizza Mars project" aria-label="View Pizza Mars project">
+                                        <!-- Yeh chhota icon dikhata hai. -->
+                                        <i class="fas fa-external-link-alt"></i>
+                                    <!-- Yeh link band karta hai. -->
+                                    </a>
+                                    <!-- Yeh clickable link dikhata hai; href batata hai ke link Pizza%20Mars/script.js par le jata hai. -->
+                                    <a href="Pizza%20Mars/script.js" class="project-link" title="View Pizza Mars JavaScript" aria-label="View Pizza Mars JavaScript">
+                                        <!-- Yeh chhota icon dikhata hai. -->
+                                        <i class="fas fa-code"></i>
+                                    <!-- Yeh link band karta hai. -->
+                                    </a>
+                                <!-- Yeh dabba band karta hai. -->
+                                </div>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="project-placeholder">
+                                <!-- Yeh chhota icon dikhata hai. -->
+                                <i class="fas fa-pizza-slice"></i>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="project-content">
+                            <!-- Yeh chhota title "Pizza Mars" wala text dikhata hai. -->
+                            <h3 class="project-title">Pizza Mars</h3>
+                            <!-- Yeh paragraph ka text dikhata hai. -->
+                            <p class="project-description">A focused restaurant presentation for pizza lovers, with food ordering information and a clear path from browsing the menu to placing an order.</p>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="project-tags">
+                                <!-- Yeh chhota text hissa "HTML" wala text dikhata hai. -->
+                                <span class="tag">HTML</span>
+                                <!-- Yeh chhota text hissa "CSS" wala text dikhata hai. -->
+                                <span class="tag">CSS</span>
+                                <!-- Yeh chhota text hissa "JavaScript" wala text dikhata hai. -->
+                                <span class="tag">JavaScript</span>
+                                <!-- Yeh chhota text hissa "Dynamic Menu" wala text dikhata hai. -->
+                                <span class="tag">Dynamic Menu</span>
+                                <!-- Yeh chhota text hissa "Shopping Cart" wala text dikhata hai. -->
+                                <span class="tag">Shopping Cart</span>
+                                <!-- Yeh chhota text hissa "Multi-step Checkout" wala text dikhata hai. -->
+                                <span class="tag">Multi-step Checkout</span>
+                                <!-- Yeh chhota text hissa "Local Storage" wala text dikhata hai. -->
+                                <span class="tag">Local Storage</span>
+                                <!-- Yeh chhota text hissa "WhatsApp Ordering" wala text dikhata hai. -->
+                                <span class="tag">WhatsApp Ordering</span>
+                                <!-- Yeh chhota text hissa "JSON-LD SEO" wala text dikhata hai. -->
+                                <span class="tag">JSON-LD SEO</span>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh paragraph "And Much More Skills Added" wala text dikhata hai. -->
+                            <p class="project-more-skills">And Much More Skills Added</p>
+                            <!-- Yeh clickable link dikhata hai; href batata hai ke link Pizza%20Mars/index.html par le jata hai. -->
+                            <a href="Pizza%20Mars/index.html" class="project-open-link" target="_blank" rel="noopener">
+                                <!-- Yeh chhota icon dikhata hai. -->
+                                Open Project <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            <!-- Yeh link band karta hai. -->
+                            </a>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                    <!-- Yeh card ALPHA GELATO ki alag responsive parlour website ka preview, code link, mukhtasar tafseel aur technology tags dikhata hai. -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="Alpha%20Gelato%20(Ice%20Cream%20Parlour)/index.html" class="project-link" title="View ALPHA GELATO project" aria-label="View ALPHA GELATO project">
+                                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="Alpha%20Gelato%20(Ice%20Cream%20Parlour)/script.js" class="project-link" title="View ALPHA GELATO JavaScript" aria-label="View ALPHA GELATO JavaScript">
+                                        <i class="fas fa-code" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-placeholder">
+                                <i class="fas fa-ice-cream" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">ALPHA GELATO</h3>
+                            <p class="project-description">A polished, responsive ice cream parlour experience featuring handcrafted gelato, matka falooda, shakes, interactive menu filters, quick views, and a sample order cart.</p>
+                            <div class="project-tags">
+                                <span class="tag">HTML5</span>
+                                <span class="tag">CSS3</span>
+                                <span class="tag">Vanilla JavaScript</span>
+                                <span class="tag">Responsive Design</span>
+                                <span class="tag">Menu Filters</span>
+                                <span class="tag">Quick View</span>
+                                <span class="tag">Cart Simulation</span>
+                            </div>
+                            <p class="project-more-skills">Handcrafted gelato, falooda, shakes, and a complete interactive menu.</p>
+                            <a href="Alpha%20Gelato%20(Ice%20Cream%20Parlour)/index.html" class="project-open-link" target="_blank" rel="noopener noreferrer">
+                                Open Project <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                <!-- Yeh dabba band karta hai. -->
+                </div>
+
+                <!-- Yeh side ka hissa shuru karta hai; class naam se style.css is hissa ka look chunta hai. -->
+                <aside class="componine-callout" aria-labelledby="componine-title">
+                    <!-- Yeh dabba shuru karta hai. -->
+                    <div>
+                        <!-- Yeh chhota title "COMPONINE" wala text dikhata hai. -->
+                        <h3 class="componine-title" id="componine-title">COMPONINE</h3>
+                        <!-- Yeh paragraph ka text dikhata hai. -->
+                        <p class="componine-message">Got a friction point or a broken user journey? Don't just guess—let us know. We listen, we think deeply, and we launch products that solve the core issue for good.</p>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                    <!-- Yeh clickable link "Let's talk" dikhata hai; href batata hai ke link #contact par le jata hai. -->
+                    <a class="componine-contact-link" href="#contact">Let's talk <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                <!-- Yeh side ka hissa wala hissa band karta hai. -->
+                </aside>
+            <!-- Yeh dabba band karta hai. -->
+            </div>
+        <!-- Yeh page ka hissa band karta hai. -->
+        </section>
+
+       <!-- Contact section rabtay ki maloomat aur contact form rakhta hai. -->
+       
+        <!-- Yeh contact page hissa shuru karta hai. -->
+        <section id="contact" class="section contact-section">
+            <!-- Yeh is page hissa ka content rakhne wala dabba shuru karta hai. -->
+            <div class="section-container">
+                <!-- Yeh is page hissa ka title wala upar ka hissa shuru karta hai. -->
+                <div class="section-header">
+                    <!-- Yeh chhota text hissa "05" wala text dikhata hai. -->
+                    <span class="section-number">05</span>
+                    <!-- Yeh title shuru karta hai; class naam se style.css is hissa ka look chunta hai. -->
+                    <h2 class="section-title">
+                        <!-- Yeh chhota text hissa "<" wala text dikhata hai. -->
+                        <span class="title-bracket">&lt;</span>
+                        <!-- Yeh chhota text hissa "Contact" wala text dikhata hai. -->
+                        <span class="title-text" data-text-en="Contact" data-text-ar="التواصل">Contact</span>
+                        <!-- Yeh chhota text hissa "/>" wala text dikhata hai. -->
+                        <span class="title-bracket">/&gt;</span>
+                    <!-- Yeh title wala hissa band karta hai. -->
+                    </h2>
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="section-line"></div>
+                <!-- Yeh dabba band karta hai. -->
+                </div>
+                
+               <!-- Contact details ek taraf aur form doosri taraf dikhaya jata hai. -->
+               
+                <!-- Yeh rabtay ki maloomat aur form ka hissa shuru karta hai. -->
+                <div class="contact-content">
+                    <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                    <div class="contact-info">
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="contact-item">
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="contact-icon">
+                                <!-- Yeh chhota icon dikhata hai. -->
+                                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="contact-details">
+                                <!-- Yeh chhota title "Email" wala text dikhata hai. -->
+                                <p class="contact-label" data-text-en="Quick inquiry" data-text-ar="استفسار سريع">Quick inquiry</p>
+                                <a href="https://wa.me/923259281031?text=Hi%20Uzair%2C%20I%20visited%20your%20portfolio%20and%20want%20to%20discuss%20a%20project" class="contact-value" data-text-en="Chat on WhatsApp" data-text-ar="تواصل عبر واتساب" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                        
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="contact-item">
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="contact-icon">
+                                <!-- Yeh chhota icon dikhata hai. -->
+                                <i class="fab fa-whatsapp"></i>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="contact-details">
+                                <!-- Yeh chhota title "WhatsApp" wala text dikhata hai. -->
+                                <p class="contact-label" data-text-en="WhatsApp" data-text-ar="واتساب">WhatsApp</p>
+                                <!-- WhatsApp opens a pre-filled project inquiry in a new tab. -->
+                                <a href="https://wa.me/923259281031?text=Hi%20Uzair%2C%20I%20visited%20your%20portfolio%20and%20want%20to%20discuss%20a%20project" class="contact-value" target="_blank" rel="noopener noreferrer">0325-9281031</a>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                        
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="contact-item">
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="contact-icon">
+                                <!-- Yeh chhota icon dikhata hai. -->
+                                <i class="fas fa-map-marker-alt"></i>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                            <div class="contact-details">
+                                <!-- Yeh chhota title "Location" wala text dikhata hai. -->
+                                <p class="contact-label" data-text-en="Location" data-text-ar="الموقع">Location</p>
+                                <!-- Yeh chhota text hissa "Karachi, Pakistan" wala text dikhata hai. -->
+                                <span class="contact-value" data-text-en="Karachi, Pakistan" data-text-ar="كراتشي، باكستان">Karachi, Pakistan</span>
+                            <!-- Yeh dabba band karta hai. -->
+                            </div>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                    <!-- Yeh dabba band karta hai. -->
+                    </div>
+                    
+                   <!-- Har input ka name JS ko uski value pehchanne deta hai; required khaali field rokta hai. -->
+                   
+                   <!-- Note: form abhi message ko server/email par nahi bhejta; JS sirf demo confirmation dikhata hai. -->
+                   
+                    <!-- Yeh form shuru karta hai; class naam se style.css is hissa ka look chunta hai; id JavaScript ko iski pehchan deta hai. -->
+                    <form class="contact-form" id="contactForm">
+                        <p id="contactFormStatus" role="status" aria-live="polite"></p>
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="form-group">
+                            <!-- Yeh naam likhne ka box banata hai; isay khaali nahin chhor sakte. -->
+                            <label for="contactName" data-text-en="Name" data-text-ar="الاسم">Name</label>
+                            <input id="contactName" type="text" name="name" autocomplete="name" class="form-input" placeholder="Name" data-placeholder-en="Name" data-placeholder-ar="الاسم" required>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="form-group">
+                            <!-- Yeh email likhne ka box banata hai; isay khaali nahin chhor sakte. -->
+                            <label for="contactEmail" data-text-en="Email" data-text-ar="البريد الإلكتروني">Email</label>
+                            <input id="contactEmail" type="email" name="email" autocomplete="email" class="form-input" placeholder="Email" data-placeholder-en="Email" data-placeholder-ar="البريد الإلكتروني" required>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="form-group">
+                            <!-- Yeh subject likhne ka box banata hai; isay khaali nahin chhor sakte. -->
+                            <label for="contactSubject" data-text-en="Subject" data-text-ar="الموضوع">Subject</label>
+                            <input id="contactSubject" type="text" name="subject" class="form-input" placeholder="Subject" data-placeholder-en="Subject" data-placeholder-ar="الموضوع" required>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                        <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                        <div class="form-group">
+                            <!-- Yeh bara message box banata hai; isay khaali nahin chhor sakte. -->
+                            <label for="contactMessage" data-text-en="Message" data-text-ar="الرسالة">Message</label>
+                            <textarea id="contactMessage" name="message" class="form-input form-textarea" rows="5" placeholder="Message" data-placeholder-en="Message" data-placeholder-ar="الرسالة" required></textarea>
+                        <!-- Yeh dabba band karta hai. -->
+                        </div>
+                        <!-- Yeh button banata hai; click karne par kaam hota hai. -->
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <!-- Yeh chhota text hissa "Send Message" wala text dikhata hai. -->
+                            <span data-text-en="Send Message" data-text-ar="إرسال الرسالة">Send Message</span>
+                            <!-- Yeh chhota icon dikhata hai. -->
+                            <i class="fas fa-paper-plane"></i>
+                        <!-- Yeh button wala hissa band karta hai. -->
+                        </button>
+                    <!-- Yeh form wala hissa band karta hai. -->
+                    </form>
+                    <a id="contactWhatsAppFallback" class="project-open-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Open WhatsApp</a>
+                <!-- Yeh dabba band karta hai. -->
+                </div>
+            <!-- Yeh dabba band karta hai. -->
+            </div>
+        <!-- Yeh page ka hissa band karta hai. -->
+        </section>
+    <!-- Yeh page ka main content band karta hai. -->
+    </main>
+
+   <!-- Footer page ke neeche copyright, author aur social links dikhata hai. -->
+   
+    <!-- Yeh page ka neeche wala hissa shuru karta hai; class naam se style.css is hissa ka look chunta hai. -->
+    <footer class="main-footer">
+        <!-- Yeh footer ka content rakhne wala dabba shuru karta hai. -->
+        <div class="footer-container">
+            <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+            <div class="footer-content">
+                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                <div class="footer-text-wrapper">
+                    <!-- Yeh paragraph shuru karta hai; class naam se style.css is hissa ka look chunta hai. -->
+                    <p class="footer-text">
+                        <!-- Yeh chhota text hissa "© 2026 Uzair-Dev-Coder" wala text dikhata hai. -->
+                        <span class="footer-copyright">© 2026 Uzair-Dev-Coder</span>
+                        <!-- Yeh chhota text hissa "•" wala text dikhata hai. -->
+                        <span class="footer-divider">•</span>
+                        <!-- Yeh chhota text hissa "A little corner of the internet, made by me." wala text dikhata hai. -->
+                        <span class="footer-built">A little corner of the internet, made by me.</span>
+                    <!-- Yeh paragraph band karta hai. -->
+                    </p>
+                    <!-- Yeh paragraph shuru karta hai; class naam se style.css is hissa ka look chunta hai. -->
+                    <p class="footer-author">
+                        <!-- Yeh chhota text hissa "by" wala text dikhata hai. -->
+                        <span class="footer-by-text" data-text-en="by" data-text-ar="بواسطة">by</span>
+                        <!-- Yeh clickable link dikhata hai; href batata hai ke link #home par le jata hai. -->
+                        <a href="#home" class="footer-author-link">
+                            <!-- Yeh chhota icon dikhata hai. -->
+                            <i class="fas fa-code"></i>
+                            <!-- Yeh chhota text hissa "Uzair-Dev-Coder" wala text dikhata hai. -->
+                            <span>Uzair-Dev-Coder</span>
+                        <!-- Yeh link band karta hai. -->
+                        </a>
+                    <!-- Yeh paragraph band karta hai. -->
+                    </p>
+                <!-- Yeh dabba band karta hai. -->
+                </div>
+                <!-- Yeh dabba shuru karta hai; class naam se style.css iska rang aur size chunta hai. -->
+                <div class="footer-social">
+                    <!-- Yeh clickable link dikhata hai; href batata hai ke link https://github.com/Uzair-Dev-Coder par le jata hai. -->
+                    <a href="https://github.com/Uzair-Dev-Coder" class="footer-social-link footer-github-link" title="GitHub: Uzair-Dev-Coder" aria-label="GitHub: Uzair-Dev-Coder" target="_blank" rel="noopener noreferrer">
+                        <!-- Yeh chhota icon dikhata hai. -->
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        <!-- Yeh chhota text hissa "github.com/Uzair-Dev-Coder" wala text dikhata hai. -->
+                        <span>github.com/Uzair-Dev-Coder</span>
+                    <!-- Yeh link band karta hai. -->
+                    </a>
+                    <!-- WhatsApp opens a pre-filled project inquiry in a new tab. -->
+                    <a href="https://wa.me/923259281031?text=Hi%20Uzair%2C%20I%20visited%20your%20portfolio%20and%20want%20to%20discuss%20a%20project" class="footer-social-link" title="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+                        <!-- Yeh chhota icon dikhata hai. -->
+                        <i class="fab fa-whatsapp"></i>
+                    <!-- Yeh link band karta hai. -->
+                    </a>
+                <!-- Yeh dabba band karta hai. -->
+                </div>
+            <!-- Yeh dabba band karta hai. -->
+            </div>
+        <!-- Yeh dabba band karta hai. -->
+        </div>
+    <!-- Yeh page ka neeche wala hissa wala hissa band karta hai. -->
+    </footer>
+
+   <!-- Anime.js bahari animation library hai; website ka apna JS upar load ho chuka hai. -->
+   
+    <!-- Yeh JavaScript file ya library page mein chalata hai. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<!-- Yeh body wala hissa band karta hai. -->
+</body>
+<!-- Yeh html wala hissa band karta hai. -->
+</html>

@@ -1,0 +1,4 @@
+# robots.txt: Google jaise robots ko batata hai ke poori website parhna theek hai.
+User-agent: *
+Allow: /
+

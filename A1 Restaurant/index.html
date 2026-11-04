@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!-- Ye HTML5 page hai. Browser ko batata hai ke ye modern page hai, taake sab phones aur laptops par sahi dikhe -->
+<html lang="en" data-theme="light">
+<head>
+<!-- Urdu/English aur emojis sahi dikhane ke liye character set -->
+<meta charset="UTF-8">
+<!-- Phone ki screen ke hisaab se page ka size set karta hai, kyun ke zyada customers phone se order karte hain -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- SEO (NAYA): title 60 characters ke andar, main keywords (chapli kabab, Karachi, branches) shuru mein.
+     KYUN: Google search result mein yahi title dikhta hai; keyword wahan ho to click zyada milte hain. -->
+<title>A-1 Peshawari Chapli Kabab Karachi | Shah Faisal &amp; Jauhar</title>
+<!-- SEO (NAYA): meta description 155 characters ke andar; search result ke neeche ka text. KYUN: acha text = zyada customers click karte hain. -->
+<meta name="description" content="Authentic Peshawari chapli kabab, BBQ, burgers and falooda in Karachi. Rooftop family seating, delivery and open till 4 AM at Shah Faisal and Gulistan-e-Jauhar.">
+<!-- SEO (NAYA): robots = Google ko index karne ki ijazat + bari preview images. -->
+<meta name="robots" content="index, follow, max-image-preview:large">
+<!-- NAYA: browser ki address bar ka rang aur dono themes ka support (mobile par premium feel). -->
+<meta name="theme-color" content="#1d1410">
+<meta name="color-scheme" content="light dark">
+<!-- NAYA: emoji favicon, alag image file nahi, is liye extra request nahi lagti (speed). -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E">
+<!-- Social preview metadata. Add absolute og:url and og:image after the live domain and image are configured. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="A-1 Peshawari Chapli Kabab &amp; Fast Food">
+<meta property="og:title" content="A-1 Peshawari Chapli Kabab Karachi | Shah Faisal &amp; Jauhar">
+<meta property="og:description" content="Live-grilled chapli kabab, BBQ, fast food and falooda. Rooftop family seating, open till 4 AM.">
+<meta property="og:locale" content="en_PK">
+<meta name="twitter:card" content="summary">
+<!-- SEO (NAYA): JSON-LD schema (Restaurant, dono branches). KYUN: Google ko naam, address, phone, timing aur rating
+     seedha samajh aati hai, jis se Maps/local results aur rich snippets milne ke chances barhte hain.
+     UPDATE 2: aggregateRating HATA diya. KYUN: Google apne hi business ki khud likhi rating ko "self-serving" maanta hai,
+     is se stars nahi milte aur policy ka risk hota hai. Asli stars Google Business Profile se aate hain. -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Restaurant","name":"A-1 Peshawari Chapli Kabab & Fast Food (Shah Faisal Colony)","telephone":"+923402661721","servesCuisine":["Pakistani","Peshawari","Barbecue","Fast Food"],"address":{"@type":"PostalAddress","streetAddress":"C14, Near A1 Hospital, Block 1, Shah Faisal Colony 1","addressLocality":"Karachi","addressRegion":"Sindh","addressCountry":"PK"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"08:00","closes":"04:00"}]},
+{"@type":"Restaurant","name":"A-1 Peshawari Chapli Kabab & Fast Food (Gulistan-e-Jauhar)","telephone":"+923337147847","servesCuisine":["Pakistani","Peshawari","Barbecue","Fast Food"],"address":{"@type":"PostalAddress","streetAddress":"Shop No. 1 & 2, Plot SB-25, Block 18, Near Perfume Chowk / Kamran Chowk, Main Gulistan-e-Jauhar","addressLocality":"Karachi","addressRegion":"Sindh","addressCountry":"PK"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"12:00","closes":"04:00"}]}
+]}
+</script>
+<!-- Design alag file (style.css) mein hai taake code saaf rahe aur design badalna aasaan ho -->
+<!-- FIX (UPDATE 2): theme pehle hi set ho jati hai (paint se pehle). KYUN: pehle dark-mode wale customer ko page ek pal ke liye safed nazar aata tha (flash). -->
+<script>try{var t=localStorage.getItem('a1-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- ACCESSIBILITY (NAYA): skip link, keyboard user Tab dabaye to seedha content par pohanch jaye. KYUN: accessibility score aur SEO dono behtar. -->
+<a class="skip-link" href="#home-page">Skip to main content</a>
+<!-- Theme button: upar-right corner mein, light aur dark mode ke beech badalta hai (default light) -->
+<button id="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Switch to dark mode">🌙</button>
+
+<!-- Ye banner JavaScript se sirf rush hour ya raat ke waqt dikhta hai, taake orders WhatsApp par aayen -->
+<!-- role="status": screen reader naya banner khud parh deta hai -->
+<div id="banner" role="status" aria-live="polite"></div>
+
+<!-- Header: restaurant ka naam, rating badge aur branch chunne ke buttons -->
+<header>
+  <h1>A-1 Peshawari Chapli Kabab &amp; Fast Food</h1>
+  <!-- FIX (UPDATE 2): neeche ki khali jagahon mein default branch (Shah Faisal) ka text pehle se likha hai. KYUN: bina JavaScript wale crawlers ko content milta hai aur page ki jagah nahi hilti (CLS). -->
+  <p id="tagline">Authentic Peshawari Chapli Kabab, BBQ &amp; Fast Food</p>
+  <!-- Trust badge: naye customer ko bharosa dilata hai -->
+  <div class="trust-badge">⭐ A local favorite for chapli kabab, BBQ and fast food</div>
+  <!-- Branch switcher: customer sahi branch chune taake galat branch ko order na jaye. Teesri branch abhi band hai -->
+  <!-- SEMANTIC (NAYA): div ki jagah <nav>, taake search engine ko pata chale ye navigation hai -->
+  <nav class="branches" aria-label="Choose your branch">
+    <button id="branch-button-shah-faisal" class="active" onclick="selectBranch('shahFaisal')">Shah Faisal Colony</button>
+    <button id="branch-button-jauhar" onclick="selectBranch('jauhar')">Gulistan-e-Jauhar</button>
+    <button id="branch-button-upcoming" disabled>Upcoming Branch · Coming Soon</button>
+  </nav>
+</header>
+
+<!-- Top bar sirf detail pages par dikhti hai; Home button se customer wapas main page par jata hai -->
+<!-- NAYA: noscript = JavaScript band ho tab bhi basic info (naam, phone, address) nazar aaye. KYUN: crawlers aur slow phones ke liye safety net. -->
+<noscript><p style="padding:16px;text-align:center">A-1 Peshawari Chapli Kabab &amp; Fast Food, Karachi. Shah Faisal: 0340-2661721. Gulistan-e-Jauhar: 0333-7147847. Please enable JavaScript to view the full menu.</p></noscript>
+<div class="top-bar" id="top-bar" hidden>
+  <span>A-1 Peshawari Chapli Kabab &amp; Fast Food</span>
+  <a class="home-button" href="index.html"><span class="home-arrow">←</span> Home</a>
+</div>
+
+<!-- Main page ka content -->
+<main id="home-page">
+  <!-- Introduction section: restaurant ki kahani, taake customer ka dil se rishta bane -->
+  <section class="story">
+    <h2>The Story Behind A1</h2>
+    <p>At A1 Restaurant, we believe that great food brings people together. What started as a dream to share delicious, high-quality meals has now become a favorite spot for food lovers. We take pride in using fresh local ingredients, rich spices, and expert culinary techniques to bring you an extraordinary dining experience. Whether you are craving our rich signature recipes or looking for a cozy place to unwind, A1 Restaurant promises top-tier flavor and unmatched hospitality in every bite.</p>
+  </section>
+
+  <!-- Feature cards: har card naye tab mein apna detail page kholta hai -->
+  <section>
+    <!-- HEADING (NAYA): chhupa hua h2 (sirf screen reader/Google ko dikhta hai) taake h1 -> h2 ka silsila toote nahi -->
+    <h2 class="sr-only">Our Specialties</h2>
+    <div class="hero-cards">
+      <a class="hero-card" href="index.html?page=liveGrilling" target="_blank" rel="noopener noreferrer" aria-label="Live Grilling - opens in a new tab">🔥<small>Live Grilling</small><em>View details →</em></a>
+      <a class="hero-card" href="index.html?page=rooftopSeating" target="_blank" rel="noopener noreferrer" aria-label="Rooftop Seating - opens in a new tab">🏙️<small>Rooftop Seating</small><em>View details →</em></a>
+      <a class="hero-card" href="index.html?page=fastFood" target="_blank" rel="noopener noreferrer" aria-label="Fast Foods - opens in a new tab">🍔<small>Fast Foods</small><em>View details →</em></a>
+      <a class="hero-card" href="index.html?page=desserts" target="_blank" rel="noopener noreferrer" aria-label="Falooda and Desserts - opens in a new tab">🍦<small>Falooda &amp; Desserts</small><em>View details →</em></a>
+    </div>
+  </section>
+
+  <!-- Facility badges: customer ko ek nazar mein suhoolatein dikhti hain -->
+  <section class="badges">
+    <h2 class="sr-only">Facilities</h2>
+    <span>🚚 Delivery Available</span><span>💵 Cash on Delivery / Dine-in</span>
+    <span>🏙️ Rooftop Family Seating</span><span>🌙 Open Till 4:00 AM</span>
+  </section>
+
+  <!-- Branch ki details: branch badalte hi ye poora hissa JavaScript se badal jata hai -->
+  <section>
+    <h2 id="branch-name">A-1 Peshawari Chapli Kabab &amp; Fast Food</h2>
+    <div class="branch-details">
+      <p>📍 <b>Address:</b> <span id="branch-address">C14, Near A1 Hospital, Block 1, Shah Faisal Colony 1, Karachi.</span></p>
+      <p>🕒 <b>Hours:</b> <span id="branch-hours">08:00 AM – 04:00 AM (Late Night Food Spot)</span></p>
+      <p id="delivery-paragraph" style="display:none">🚚 <b>Delivery:</b> <span id="delivery-coverage"></span></p>
+      <p>✨ <span id="branch-highlights">Rooftop Family Seating · Live Grilling · Late-Night Spot</span></p>
+      <div class="actions" id="branch-actions"></div>
+      <!-- referrerpolicy: privacy + Google Maps sahi chale; loading="lazy" map tab load hota hai jab nazar aaye (speed) -->
+      <iframe id="branch-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Branch location map"></iframe>
+      <p><a id="map-link" target="_blank" rel="noopener noreferrer">Open in Google Maps</a></p>
+    </div>
+  </section>
+
+  <!-- Digital menu: search box aur clickable items; har item naye tab mein detail page kholta hai -->
+  <section>
+    <h2>🍽️ Menu</h2>
+    <a class="button call-button menu-card-button" href="index.html?page=menu" target="_blank" rel="noopener noreferrer">📖 Open Full Menu Card</a>
+    <input id="search-input" type="search" aria-label="Search the menu" autocomplete="off" placeholder="Search menu... (chapli, burger, shake)" oninput="renderMenuList()">
+    <!-- aria-live: search ke baad nateeje badlen to screen reader batata hai -->
+    <div class="menu-grid" id="menu-list" aria-live="polite"></div>
+  </section>
+
+  <!-- Review card: Google par 5-star reviews barhane ke liye, isse local search ranking behtar hoti hai -->
+  <section class="review">
+    <h3>⭐ How Did You Like the Food?</h3>
+    <p>Did you enjoy your meal? Take just 5 seconds to leave us a 5-star review on Google!</p>
+    <a class="button" id="review-button" target="_blank" rel="noopener noreferrer">Give 5-Star Review</a>
+  </section>
+</main>
+
+<!-- Detail pages (item, offering, menu) ka content JavaScript yahan bharta hai -->
+<main id="detail-page" hidden></main>
+
+<!-- SEMANTIC + LOCAL SEO (NAYA): footer mein <address> aur dono branches ka naam-address-phone (NAP).
+     KYUN: Google local ranking ke liye NAP site par har jagah ek jaisa hona chahiye. -->
+<footer>
+  <address>
+    <strong>Shah Faisal:</strong> C14, Near A1 Hospital, Block 1, Shah Faisal Colony 1, Karachi · <a href="tel:03402661721">0340-2661721</a><br>
+    <strong>Gulistan-e-Jauhar:</strong> Plot SB-25, Block 18, Near Perfume Chowk, Karachi · <a href="tel:03337147847">0333-7147847</a>
+  </address>
+  <p>© A-1 Peshawari Chapli Kabab &amp; Fast Food, Karachi</p>
+</footer>
+
+<!-- Floating WhatsApp button: scroll karne par bhi nazar aata hai, link JavaScript set karti hai -->
+<a id="floating-whatsapp-button" target="_blank" rel="noopener noreferrer" aria-label="Order on WhatsApp">💬</a>
+
+<!-- Logic alag file mein hai: theme, branch switch, menu search aur banners -->
+<script src="script.js"></script>
+</body>
+</html>

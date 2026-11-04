@@ -1,0 +1,437 @@
+<!doctype html>
+<!--
+  =====================================================================
+  index.html  —  Website ka "jism" (haddiyan): jo cheezein page par nazar aati hain
+  =====================================================================
+  HTML ka kaam: batana ke page par KYA KYA hai (heading, likhai, photo, button, form).
+  Har cheez ko "tag" kehte hain, jaise:
+      <h1>Naam</h1>    -> <h1> shuru, </h1> khatam. Beech mein jo likha wo heading hai.
+      <p>...</p>       -> paragraph (likhai)
+      <img>            -> photo
+      <button>         -> dabane wala button
+      <a href="...">   -> link
+      <div>            -> ek khali dabba jo cheezon ko samet kar rakhta hai
+      <section>        -> page ka ek hissa
+  class="..."  = cheez ka "naam" jis se CSS (styles.css) usay rang aur shakal deti hai.
+  id="..."     = cheez ka "khaas apna naam" jis se JavaScript (app.js) usay dhoond kar kaam karwata hai.
+
+  Page ka silsila (oopar se neeche):
+     1. Loading screen   2. "Band hai" wali bar   3. Header   4. Hero (branch chunna)
+     5. Delivery map     6. Menu                  7. About    8. Reviews
+     9. Gallery         10. FAQ                  11. Table request   12. Loyalty
+    13. Footer          14. WhatsApp button, View-cart bar, aur popups (dialogs)
+  =====================================================================
+-->
+
+<!-- Yeh line browser ko batati hai ke yeh modern HTML5 page hai. -->
+<!-- <html> poora page hai. lang="en" = zubaan English. data-theme="dark" = shuru mein andhera (dark) mode. -->
+<html lang="en" data-theme="light">
+<!-- <head> = page ki "peeche ki maloomat" jo nazar nahi aati lekin zaroori hain (naam, rang, fonts, wagaira). -->
+<head>
+  <!-- Likhai ko sahi tarah parhne ke liye (Urdu/English ke alfaaz theek dikhein). -->
+  <meta charset="utf-8">
+  <!-- Phone par page sahi size mein dikhe (mobile-friendly ke liye bohat zaroori). -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Browser ke tab mein jo naam dikhta hai aur Google ke nateejon mein bhi. -->
+  <title>Chai Jan | Late-night chai, parathas and chaat in Karachi</title>
+  <!-- Phone ke browser ki upar wali patti ka rang (espresso). -->
+  <meta name="theme-color" content="#150E0A">
+  <!-- Google ke nateejon mein website ke neeche jo chhota bayan dikhta hai. -->
+  <meta name="description" content="Chai Jan is a cozy late-night tea and food spot with two Karachi branches. Browse each branch's menu, check hours and order via WhatsApp.">
+  <!-- Open Graph = jab koi website ka link WhatsApp/Facebook par bheje to jo title/bayan/qism dikhti hai. -->
+  <meta property="og:title" content="Chai Jan | Late-night chai in Karachi">
+  <meta property="og:description" content="Chai, crispy parathas, chaat and more. Dine-in, takeaway and delivery.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Chai Jan">
+  <meta property="og:locale" content="en_PK">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Chai Jan | Late-night chai in Karachi">
+  <meta name="twitter:description" content="Chai, crispy parathas, chaat and more. Dine-in, takeaway and delivery.">
+  <!-- Google Fonts se pehle hi rabta kar lo (preconnect), taake fonts jaldi aayein. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fonts: Fraunces (khoobsurat serif, headings ke liye) + Manrope (saaf likhai, parhne ke liye) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Manrope:wght@400;600;700&display=swap">
+  <!-- Hamari apni design wali file (rang, jagah, animation). -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<!-- <body> = page ka woh hissa jo screen par nazar aata hai. class="loading" = shuru mein scroll band (loader ke liye). -->
+<body class="loading">
+
+<!-- =====================================================================
+     HISSA 1: LOADING SCREEN (Preloader)
+     Chai ka cup table par sarakta hai, percent 0 se 100 tak jata hai, aakhir mein bhaap uthti hai.
+     Progress asli loading ke hisaab se chalta hai. "Skip" button se foran chhor sakte hain.
+     role="progressbar" = screen reader ko batata hai ke yeh progress ki patti hai.
+     ===================================================================== -->
+<div id="loader" class="loader" role="progressbar" aria-label="Loading Chai Jan" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+  <!-- Skip button: dabane se loading foran khatam. -->
+  <button type="button" id="loaderSkip" class="skipbtn">Skip</button>
+  <!-- Loader ka bara likha hua naam. -->
+  <p class="lt">I Love Chai Jan</p>
+  <!-- SVG = code se banayi gayi tasveer (kabhi dhundli nahi hoti). Yahan cup, table aur chai hai.
+       viewBox="0 0 360 200" = tasveer ki apni naap (360 chauri, 200 lambi). aria-hidden = screen reader isay na parhe (sirf sajawat). -->
+  <svg class="scene" viewBox="0 0 360 200" aria-hidden="true">
+    <!-- defs = wo cheezein jo baad mein istemal hongi. clipPath = cup ki shakal ka "saancha": chai us se bahar nazar nahi aayegi. -->
+    <defs><clipPath id="cupClip"><path d="M60 72h100v26c0 24-22 42-50 42s-50-18-50-42z"/></clipPath></defs>
+    <!-- Table: pehle gehra bhoora chorsa (rect), phir uske oopar halka bhoora kinara. -->
+    <rect y="146" width="360" height="54" fill="#4A2F1D"/><rect y="146" width="360" height="5" fill="#8B5E3C"/>
+    <!-- id="cupG" = cup ka poora group; app.js isay table par sarkata hai. -->
+    <g id="cupG">
+      <!-- Cup ka saaya (zameen par kaali gol shakal). -->
+      <ellipse cx="110" cy="152" rx="76" ry="6" fill="rgba(0,0,0,.35)"/>
+      <!-- Cup ke neeche ki plate (saucer). -->
+      <ellipse cx="110" cy="144" rx="70" ry="7" fill="#EDE6DA"/>
+      <!-- Cup ka kunda (handle): ek mota gol kinara wali lakeer. -->
+      <path d="M160 84h8a14 14 0 0 1 0 28h-12" fill="none" stroke="#F4EFE6" stroke-width="6" stroke-linecap="round"/>
+      <!-- Cup ka jism (cream rang). -->
+      <path d="M60 72h100v26c0 24-22 42-50 42s-50-18-50-42z" fill="#F4EFE6"/>
+      <!-- Cup ke andar ki chai: clip-path se sirf cup ki shakal ke andar nazar aati hai. id="chai" = upar chadhne wali chai. -->
+      <g clip-path="url(#cupClip)"><g id="chai">
+        <!-- Chai ka bhoora hissa aur uski sath ki satah (surface). -->
+        <rect x="50" y="88" width="120" height="70" fill="#B26A2E"/>
+        <ellipse cx="110" cy="88" rx="50" ry="5" fill="#C98A4B"/>
+        <!-- Jhaag ke paanch bulbule. Shuru mein opacity="0" (nazar nahi aate); app.js progress ke saath dheere dheere dikhata hai. -->
+        <g id="froth" class="froth" fill="#F3DFC0" opacity="0"><circle cx="78" cy="87" r="6"/><circle cx="94" cy="85" r="8"/><circle cx="112" cy="86" r="7"/><circle cx="128" cy="85" r="8"/><circle cx="143" cy="87" r="6"/></g>
+      </g></g>
+      <!-- Bhaap (steam): teen lehrati lakeeren. 100% par CSS inhein nazar aane wala banati hai. -->
+      <g class="steam" fill="none" stroke="#EDE6DA" stroke-width="4" stroke-linecap="round"><path d="M90 62c-8-10 8-14 0-26"/><path d="M110 58c-8-10 8-14 0-26"/><path d="M130 62c-8-10 8-14 0-26"/></g>
+    </g>
+  </svg>
+  <!-- Percent ka number. id="pct" = app.js yahan 0 se 100 likhta hai. -->
+  <p class="pct" aria-hidden="true"><span id="pct">0</span>%</p>
+</div>
+<!-- noscript = agar customer ke browser mein JavaScript band ho to loader chhupa do (warna wo hamesha ke liye atak jata). -->
+<noscript><style>#loader{display:none}</style></noscript>
+<!-- Hifazati jaal: agar kisi wajah se 9 second baad bhi loader na hate to zabardasti hata do, taake customer atka na rahe. -->
+<script>setTimeout(function(){var l=document.getElementById("loader");if(l){l.remove();document.body.classList.remove("loading")}},9000)</script>
+
+<!-- "Skip to menu" link: sirf keyboard (Tab) se nazar aata hai, taake keyboard wale seedha menu par ja saken. -->
+<a class="skip" href="#menu">Skip to menu</a>
+
+
+<!-- =====================================================================
+     HISSA 2: "BAND HAI" WALI BAR (sab se oopar)
+     Jab branch band ho to yeh patli bar dikhti hai aur text sarakta hai.
+     hidden = shuru mein chhupi hui; app.js tab dikhata hai jab branch band ho.
+     ===================================================================== -->
+<div id="closedBar" class="announce" hidden>
+  <!-- Sarakne wala message (text app.js bharta hai). role="status" = screen reader tabdeeli parh kar sunaye. -->
+  <div class="slidebox" role="status"><p id="closedMsg"></p></div>
+  <!-- DISABLED - FUTURE REFERENCE: Pause/Play control. Is comment ko hata kar button dobara chala sakte hain.
+  <button type="button" id="barPause" class="barbtn" aria-pressed="false">Pause</button>
+  -->
+</div>
+
+
+<!-- =====================================================================
+     HISSA 3: HEADER (logo, links, theme aur cart ke buttons)
+     ===================================================================== -->
+<header class="bar"><div class="wrap row">
+  <!-- Brand name is text, so it remains available even when images are not supplied. -->
+  <a class="brand" href="#top" aria-label="Chai Jan, back to top">
+    <span class="wm">Chai</span><span class="jan">Jan</span>
+  </a>
+  <!-- Navigation: har link page ke ek hissay par le jata hai (#delivery = id="delivery" wala hissa). -->
+  <nav aria-label="Main">
+    <a href="#delivery">Delivery</a><a href="#menu">Menu</a><a href="#about">About</a><a href="#reviews">Reviews</a><a href="#gallery">Gallery</a>
+    <a href="#faq">FAQ</a><a href="#reserve">Reservations</a><a href="#loyalty">Loyalty</a><a href="#contact">Contact</a>
+  </nav>
+  <!-- Theme button: chand/suraj. Dabane se dark aur light mode badalta hai. -->
+  <button id="themeBtn" class="icon" aria-label="Switch to light mode"><span class="ico">☾</span></button>
+  <!-- Cart button: tokri ka nishan aur andar cheezon ki ginti (id="cartCount"). -->
+  <button id="cartBtn" class="icon" aria-label="Open cart">🛒 <span id="cartCount">0</span></button>
+</div></header>
+
+
+<!-- <main> = page ka asli mawaad (header aur footer ke darmiyan). -->
+<main id="top">
+
+  <!-- =====================================================================
+       HISSA 4: HERO (pehla bara hissa) — branch chuno aur khula/band dekho
+       ===================================================================== -->
+  <section class="hero">
+    <!-- Peeche ki bari photo (restaurant ki building). alt="" = sirf sajawat. width/height pehle se likhne se page hilta nahi.
+         fetchpriority="high" = isay sab se pehle download karo. -->
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap hero-grid">
+    <!-- Baayen taraf: likhai aur buttons -->
+    <div>
+      <!-- Sab se bara heading. "Chai Jan" lafz teda aur peela (<em> = zor dene wala lafz). "sub" = chhoti tagline. -->
+      <h1><span class="love">I Love <em>Chai Jan</em></span><span class="sub">Late-night chai, parathas and chaat</span></h1>
+      <!-- Branch chunne ke do bare buttons. data-b = branch ka khaas naam jo data.js mein hai. -->
+      <div class="seg" role="group" aria-label="Choose a branch">
+        <button data-b="shahfaisal">Shah Faisal</button>
+        <button data-b="highway">Main National Highway</button>
+      </div>
+      <!-- Neeche ki khali jagahein app.js bharta hai (chuni hui branch ke hisaab se): -->
+      <h2 id="bName"></h2>                                       <!-- branch ka naam -->
+      <p id="status" class="status" role="status"></p>           <!-- "Open now. Serving until..." -->
+      <p id="bAddr"></p>                                         <!-- address -->
+      <p><a id="bPhone"></a> <span id="bRating"></span></p>      <!-- phone (link) aur rating -->
+      <p>Dine-in, takeaway and delivery.</p>
+      <!-- <details> = khulne wala dabba: "Weekly hours" par dabane se hafte ke saat dino ka waqt nazar aata hai. -->
+      <details><summary>Weekly hours</summary><ul id="bHours" class="plain"></ul></details>
+      <!-- Do buttons (links jo buttons jaise dikhte hain). class "mag" = hover par button mouse ki taraf khinchta hai. -->
+      <a class="btn accent mag" href="#menu">Browse the menu</a> <a class="btn ghost mag" href="#delivery">Delivery zones</a>
+    </div>
+    <!-- Daayen taraf: mehrab (arch) shakal ki chai ki photo. Isay kisi bhi apni photo se badal sakte hain. -->
+    <div class="arch" role="img" aria-label="Illustration of a steaming cup of chai at Chai Jan"><img src="images/chai-cup.svg" alt="" width="580" height="770" decoding="async"></div>
+  </div></section>
+
+
+  <!-- =====================================================================
+       HISSA 5: DELIVERY MAP AUR ZONES (hero ke foran baad)
+       Sirf chuni hui branch ka map. Agar coordinates ya radius na bhare hon to "Map setup needed" dikhta hai.
+       ===================================================================== -->
+  <section id="delivery" class="alt"><div class="wrap">
+    <h2>Delivery zones</h2>
+    <!-- "Delivery zones for the ... Branch" (app.js likhta hai) -->
+    <p id="dBranch" class="muted"></p>
+    <!-- Legend (nishani): har zone ka rang, naam aur kiraya (app.js bharta hai). -->
+    <ul id="legend" class="legend plain" aria-label="Map legend"></ul>
+    <div class="dgrid">
+      <!-- Map ka dabba: aqal wali Leaflet library yahan asli map banati hai. role="region" = screen reader ke liye ek hissa. -->
+      <div id="map" class="map" role="region" aria-label="Delivery zones map"></div>
+      <!-- Daayen taraf: customer ki location chunne ke controls (phone par yeh map ke OOPAR aate hain). -->
+      <div class="pick">
+        <div class="card" id="pickCard">
+          <h3>Your delivery location</h3>
+          <p>Choose an option below. The map opens, your zone is found and your delivery fee shows right away.</p>
+          <!-- Do tareeqe: (1) abhi ki location, (2) address likhna -->
+          <div class="locbtns">
+            <button type="button" class="btn" id="locBtn">Use my current location</button>
+            <!-- aria-expanded = screen reader ko batata hai ke address ka dabba khula hai ya band; aria-controls = kis dabbe ko khol raha hai. -->
+            <button type="button" class="btn ghost" id="addrBtn" aria-expanded="false" aria-controls="addrBox">Enter Delivery Address</button>
+          </div>
+          <!-- Address likhne ka dabba: shuru mein chhupa hua (hidden), "Enter Delivery Address" dabane par khulta hai. -->
+          <div id="addrBox" class="addrbox" hidden>
+            <label for="addrIn">Street, area or landmark in Karachi</label>
+            <!-- form = likhne ki jagah + Find button. Enter dabane se bhi chalta hai. autocomplete = browser purana address suggest kare. -->
+            <form id="addrForm"><input id="addrIn" type="search" autocomplete="street-address" placeholder="e.g. Shah Faisal Colony"><button class="btn" id="addrFind">Find</button></form>
+            <p class="muted">Not exactly right? Tap the map to move the pin.</p>
+          </div>
+          <!-- Delivery fee jo bara aur saaf dikhta hai (app.js likhta hai, role="status" = tabdeeli par screen reader sunaye). -->
+          <p id="feeOut" class="fee" role="status"></p>
+          <!-- Tisra tareeqa: seedha coordinates likhna (latitude aur longitude). -->
+          <details class="coords"><summary>Enter coordinates instead</summary>
+            <label>Latitude <input id="latIn" inputmode="decimal"></label>
+            <label>Longitude <input id="lngIn" inputmode="decimal"></label>
+            <button type="button" class="btn ghost" id="coordBtn">Check my zone</button>
+          </details>
+          <!-- Samjhane wala message (kis zone mein ho, kitni door). -->
+          <p id="zoneOut" role="status"></p>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+
+  <!-- =====================================================================
+       HISSA 6: MENU — sirf chuni hui branch ka menu dikhta hai
+       ===================================================================== -->
+  <section id="menu"><div class="wrap">
+    <!-- Heading ("Menu: Shah Faisal Branch") app.js likhta hai. -->
+    <h2 id="menuTitle">Menu</h2>
+    <!-- Search ke dabbe ka naam (sirf screen reader ke liye, class="sr"). -->
+    <label for="q" class="sr">Search the menu</label>
+    <!-- Search box: likhne par menu chhanta hai. Placeholder (halki likhai) typewriter ki tarah badalti hai. -->
+    <input id="q" type="search" placeholder="Search the menu" autocomplete="off">
+    <!-- Category ke buttons (All, Burgers, ...) aur menu ki list: dono app.js bharta hai. -->
+    <div id="chips" class="chips" role="group" aria-label="Menu categories"></div>
+    <div id="menuList"></div>
+  </div></section>
+
+
+  <!-- =====================================================================
+       HISSA 7: ABOUT (hamare baare mein) — ek taraf likhai, ek taraf photo
+       ===================================================================== -->
+  <section id="about" class="alt"><div class="wrap about-grid"><div>
+    <h2>Welcome to Chai Jan</h2>
+    <!-- Business ki di hui asli likhai (bina badle). -->
+    <p>At Chai Jan, we bring people together over the perfect cup of tea. Our vibrant café is designed for those who appreciate authentic flavors and a cozy, aesthetic atmosphere perfect for late-night conversations and creating lasting memories with friends and family. More than just a tea spot, we take pride in serving high-quality quick bites, from crispy parathas to flavorful chaats, ensuring every visit satisfies your cravings. Come for the exceptional chai, stay for the welcoming vibe, and experience the heart of our community.</p>
+    <!-- Khaas baatein ki list (<ul> = bindu wali list, <li> = ek baat). -->
+    <ul class="feat">
+      <li>Tea, coffee, quick bites, small plates, chaat and parathas</li>
+      <li>Casual, cozy seating for groups and families</li>
+      <li>Table service</li>
+      <li>Free parking lot and free street parking</li>
+    </ul>
+  </div>
+  <!-- About ki photo. loading="lazy" = jab screen ke qareeb aaye tab download (website tez rehti hai). -->
+  <img class="about-img" src="images/cafe-interior.svg" alt="Illustration of a warmly lit cafe interior" width="600" height="425" loading="lazy" decoding="async">
+  </div></section>
+
+
+  <!-- =====================================================================
+       HISSA 8: REVIEWS (customers ki raaye)
+       ===================================================================== -->
+  <section id="reviews"><div class="wrap">
+    <h2>What guests say</h2>
+    <!-- Branch ki rating ka note (app.js likhta hai). -->
+    <p id="revNote" class="muted"></p>
+    <!-- Reviews ke dabbe (app.js data.js se bharta hai). -->
+    <ul id="revList" class="grid plain"></ul>
+    <!-- Naya review likhne ka form. required = khali chhor kar bhej nahi sakte. maxlength = zyada se zyada kitne harf. -->
+    <form id="revForm" class="card form">
+      <h3>Add a review</h3>
+      <label>Your name <input name="name" required maxlength="60"></label>
+      <!-- Rating chunne ka dropdown (5 sab se achi). -->
+      <label>Rating <select name="stars"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></label>
+      <label>Your review <textarea name="text" required maxlength="400" rows="3"></textarea></label>
+      <button class="btn">Submit review</button>
+      <!-- Bhejne ke baad jawab ka message yahan aata hai. -->
+      <p id="revMsg" role="status"></p>
+    </form>
+  </div></section>
+
+
+  <!-- =====================================================================
+       HISSA 9: GALLERY (photos ka bento jaal)
+       ===================================================================== -->
+  <section id="gallery" class="alt"><div class="wrap">
+    <h2>Gallery</h2>
+    <!-- Filter ke buttons (All, Ambiance, Chai) aur photos: dono app.js bharta hai. -->
+    <div id="galChips" class="chips" role="group" aria-label="Gallery filter"></div>
+    <div id="galGrid" class="gal"></div>
+  </div></section>
+
+
+  <!-- =====================================================================
+       HISSA 10: FAQ (aksar poochhe jane wale sawal)
+       ===================================================================== -->
+  <section id="faq"><div class="wrap narrow">
+    <h2>Questions</h2>
+    <label for="faqQ" class="sr">Search questions</label>
+    <!-- Sawalon mein search karne ka box. -->
+    <input id="faqQ" type="search" placeholder="Search questions">
+    <!-- Sawal-jawab ki list (app.js bharta hai). -->
+    <div id="faqList"></div>
+  </div></section>
+
+
+  <!-- =====================================================================
+       HISSA 11: TABLE REQUEST (table ki darkhwast)
+       ===================================================================== -->
+  <section id="reserve" class="alt"><div class="wrap narrow">
+    <h2>Request a table</h2>
+    <p class="muted">This is a request. Your table is confirmed only when our staff reply.</p>
+    <form id="resForm" class="card form">
+      <!-- Tareekh chunna (type="date" calendar kholta hai). id="resDate" = app.js is ke hisaab se waqt ke options banata hai. -->
+      <label>Date <input type="date" name="date" id="resDate" required></label>
+      <!-- Waqt ka dropdown: sirf branch ke khuley hue waqt ke options. -->
+      <label>Time <select name="time" id="resTime" required></select></label>
+      <!-- Kitne log: kam az kam 1, zyada se zyada 30, shuru mein 2. -->
+      <label>Guests <input type="number" name="guests" min="1" max="30" value="2" required></label>
+      <label>Your name <input name="name" required></label>
+      <!-- Phone: pattern = sirf number, +, space ya - (10 se 16 harf). -->
+      <label>Phone <input name="phone" type="tel" pattern="[0-9+\s-]{10,16}" required></label>
+      <button class="btn">Send table request</button>
+      <p id="resMsg" role="status"></p>
+    </form>
+  </div></section>
+
+
+  <!-- =====================================================================
+       HISSA 12: LOYALTY (inaam ka program)
+       ===================================================================== -->
+  <section id="loyalty"><div class="wrap narrow">
+    <h2>Chai Jan loyalty</h2>
+    <!-- TODO: business se points ke qawaid aur inaam milne par yahan likhein. Abhi koi offer khud se nahi banaya. -->
+    <p>Our loyalty program details are coming soon. Ask at the branch to be first to hear about it.</p>
+  </div></section>
+</main>
+
+
+<!-- =====================================================================
+     HISSA 13: FOOTER (sab se neeche: rabta aur delivery ke kiraye)
+     ===================================================================== -->
+<footer id="contact" class="foot"><div class="wrap">
+  <h2>Contact</h2>
+  <!-- Address aur phone (app.js chuni hui branch ke hisaab se bharta hai). -->
+  <p id="fAddr"></p>
+  <p><a id="fPhone"></a></p>
+  <h3>Delivery charges</h3>
+  <!-- Zones ke kiraye ki list (app.js bharta hai). -->
+  <ul id="zones" class="plain"></ul>
+  <p class="muted">Zone areas are being confirmed by the branch. If you are unsure of your zone, we will confirm your delivery charge on WhatsApp.</p>
+  <p>Chai Jan, Karachi. Dine-in, takeaway and delivery.</p>
+</div></footer>
+
+
+<!-- =====================================================================
+     HISSA 14: TAIRTE HUE (floating) BUTTONS AUR POPUPS
+     ===================================================================== -->
+
+<!-- Floating WhatsApp button: neeche daayen kone mein chipka rehta hai. href aur label app.js chuni hui branch ke hisaab se badalta hai.
+     target="_blank" = naye tab mein khule. rel="noopener noreferrer" = naya tab purane page par qabza na kar sake (hifazat). -->
+<a id="waFloat" class="wa" href="https://wa.me/923284400999" target="_blank" rel="noopener noreferrer" aria-label="Chat with Chai Jan on WhatsApp">
+  <!-- WhatsApp ka nishan (safed bolta hua baadal aur andar hara telephone), code se banaya hua. -->
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2z" fill="#fff"/>
+    <path transform="translate(6.300 6.300) scale(.5)" fill="none" stroke="#1FA855" stroke-width="2.600" stroke-linecap="round" stroke-linejoin="round" d="M22 16.920v3a2 2 0 0 1-2.180 2 19.790 19.790 0 0 1-8.630-3.070 19.500 19.500 0 0 1-6-6 19.790 19.790 0 0 1-3.070-8.670A2 2 0 0 1 4.110 2h3a2 2 0 0 1 2 1.720 12.840 12.840 0 0 0 .7 2.810 2 2 0 0 1-.450 2.110L8.090 9.910a16 16 0 0 0 6 6l1.270-1.270a2 2 0 0 1 2.110-.450 12.840 12.840 0 0 0 2.810.7A2 2 0 0 1 22 16.920z"/>
+  </svg>
+</a>
+
+<!-- Phone par neeche "View cart" bar: sirf chhoti screen par nazar aati hai aur jab cart khali ho to chhupi rehti hai. -->
+<button type="button" id="cartBar" class="cartbar" hidden></button>
+
+<!-- Gallery ki bari photo ka popup (lightbox). <dialog> = browser ka apna popup (Esc se band hota hai). -->
+<dialog id="lbDlg" aria-label="Photo viewer">
+  <img id="lbImg" alt=""><p id="lbCap" class="muted"></p>
+  <!-- Previous (pichli), Close (band), Next (agli) ke buttons. -->
+  <div class="lbbar"><button type="button" class="btn ghost" id="lbPrev">Previous</button><button type="button" class="btn ghost" id="lbClose">Close</button><button type="button" class="btn ghost" id="lbNext">Next</button></div>
+</dialog>
+
+<!-- Item ka popup: menu ke item par dabane se khulta hai. Naam, description, size, quantity aur kul daam. -->
+<dialog id="itemDlg" aria-labelledby="itName">
+  <h3 id="itName"></h3>
+  <p id="itDesc" class="muted"></p>
+  <!-- Size ke options (radio buttons) app.js bharta hai. -->
+  <div id="itOpts"></div>
+  <!-- Quantity: (−) number (+). type="number" min/max = 1 se 20 ke andar. -->
+  <div class="qty big">
+    <button type="button" id="qMinus" aria-label="Decrease quantity">−</button>
+    <input id="itQty" type="number" min="1" max="20" value="1" aria-label="Quantity">
+    <button type="button" id="qPlus" aria-label="Increase quantity">+</button>
+  </div>
+  <!-- Live kul daam ("4 × Rs. 150 = Rs. 600"). aria-live="polite" = badalne par screen reader dheere se sunaye. -->
+  <p id="itTotal" class="itotal" aria-live="polite"></p>
+  <div class="row end">
+    <button type="button" class="btn ghost" id="itClose">Close</button>
+    <button type="button" class="btn" id="addBtn">Add to cart</button>
+  </div>
+</dialog>
+
+<!-- Cart + order ka popup: cheezein, kul daam, delivery, customer ki maloomat aur "Place order via WhatsApp". -->
+<dialog id="cartDlg" aria-labelledby="cartTitle">
+  <div class="row"><h3 id="cartTitle">Your cart</h3><button type="button" class="icon" id="cartClose" aria-label="Close cart">✕</button></div>
+  <!-- "Ordering from: ... Branch" (app.js likhta hai). -->
+  <p class="muted" id="cartBranch"></p>
+  <!-- Cart ki cheezein aur kul jod (app.js bharta hai). -->
+  <ul id="cartLines" class="plain"></ul>
+  <p id="totals"></p>
+  <form id="orderForm" class="form">
+    <!-- Order ki qism: Delivery, Takeaway ya Dine-in. -->
+    <label>Order type
+      <select id="oType"><option>Delivery</option><option>Takeaway</option><option>Dine-in</option></select></label>
+    <!-- Delivery location aur kiraya dikhane wala dabba (sirf Delivery mein nazar aata hai). -->
+    <div id="zoneWrap" class="card"></div>
+    <!-- Customer ki maloomat: naam, phone, address (sirf delivery mein zaroori), aur khaas hidayat (optional = zaroori nahi). -->
+    <label>Your name <input id="oName" required></label>
+    <label>Phone <input id="oPhone" type="tel" pattern="[0-9+\s-]{10,16}" required></label>
+    <label id="addrWrap">Delivery address <textarea id="oAddr" rows="2"></textarea></label>
+    <label>Instructions (optional) <textarea id="oNote" rows="2"></textarea></label>
+    <button class="btn accent">Place order via WhatsApp</button>
+    <p class="muted">WhatsApp opens with your order ready. Press Send there. Your order is not confirmed until our staff reply in the chat.</p>
+    <p id="orderMsg" role="status"></p>
+  </form>
+</dialog>
+
+<!-- Aakhir mein do JavaScript files load hoti hain. ORDER ZAROORI HAI:
+     pehle data.js (maloomat), phir app.js (jo data.js ki maloomat istemal karti hai). -->
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1050" viewBox="0 0 1800 1050" fill="none">
+  <defs>
+    <linearGradient id="core" x1="685" y1="390" x2="1115" y2="660" gradientUnits="userSpaceOnUse"><stop stop-color="#1C241D"/><stop offset="1" stop-color="#101512"/></linearGradient>
+    <linearGradient id="border" x1="650" y1="360" x2="1150" y2="700" gradientUnits="userSpaceOnUse"><stop stop-color="#D7F36A" stop-opacity=".8"/><stop offset="1" stop-color="#A4D8C2" stop-opacity=".22"/></linearGradient>
+    <linearGradient id="background" x1="80" y1="70" x2="1720" y2="980" gradientUnits="userSpaceOnUse"><stop stop-color="#151A16"/><stop offset=".52" stop-color="#0B0E0C"/><stop offset="1" stop-color="#111714"/></linearGradient>
+    <radialGradient id="backGlow" cx="0" cy="0" r="1" gradientTransform="matrix(0 420 -700 0 900 510)" gradientUnits="userSpaceOnUse"><stop stop-color="#D7F36A" stop-opacity=".08"/><stop offset="1" stop-color="#D7F36A" stop-opacity="0"/></radialGradient>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="18" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="shadow" x="-30%" y="-50%" width="160%" height="200%"><feGaussianBlur in="SourceAlpha" stdDeviation="12"/><feOffset dy="8"/><feComponentTransfer><feFuncA type="linear" slope=".5"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <!-- dark business-card backdrop -->
+  <rect width="1800" height="1050" rx="48" fill="url(#background)"/>
+  <rect width="1800" height="1050" rx="48" fill="url(#backGlow)"/>
+  <rect x="1" y="1" width="1798" height="1048" rx="47" stroke="#D7F36A" stroke-opacity=".12" stroke-width="2"/>
+  <ellipse cx="900" cy="510" rx="626" ry="312" transform="rotate(-13 900 510)" stroke="#A4D8C2" stroke-opacity=".24" stroke-width="2" stroke-dasharray="5 15"/>
+  <ellipse cx="900" cy="510" rx="548" ry="250" transform="rotate(13 900 510)" stroke="#D7F36A" stroke-opacity=".34" stroke-width="2"/>
+  <ellipse cx="900" cy="510" rx="392" ry="150" transform="rotate(-23 900 510)" stroke="#D7F36A" stroke-opacity=".14" stroke-width="2"/>
+  <path d="M273 366c178-222 513-337 822-258" stroke="#D7F36A" stroke-opacity=".20" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="1364" cy="316" r="7" fill="#D7F36A" filter="url(#glow)"/><circle cx="441" cy="714" r="5" fill="#78DFF5"/>
+  <circle cx="1219" cy="782" r="5" fill="#E7A9FF"/><circle cx="639" cy="240" r="4" fill="#FFB87E"/>
+  <!-- core -->
+  <circle cx="900" cy="510" r="155" fill="#D7F36A" fill-opacity=".08" filter="url(#glow)"/>
+  <circle cx="900" cy="510" r="125" fill="url(#core)" stroke="url(#border)" stroke-width="2"/>
+  <circle cx="900" cy="510" r="108" stroke="#D7F36A" stroke-opacity=".14"/>
+  <path d="m857 490-23 20 23 20M943 490l23 20-23 20M916 478l-32 64" stroke="#D7F36A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="900" cy="510" r="3" fill="#F3F1E8"/>
+  <!-- skills -->
+  <g filter="url(#shadow)" font-family="'Fira Code','Consolas',monospace" font-size="29" font-weight="600" fill="#F3F1E8">
+    <g transform="translate(900 144)"><rect x="-100" y="-34" width="200" height="68" rx="34" fill="#151A16" stroke="#FF9275" stroke-opacity=".82" stroke-width="2"/><circle cx="-68" cy="0" r="7" fill="#FF9275"/><text x="-48" y="10">HTML</text></g>
+    <g transform="translate(1324 285)"><rect x="-83" y="-34" width="166" height="68" rx="34" fill="#151A16" stroke="#8EB7FF" stroke-opacity=".82" stroke-width="2"/><circle cx="-51" cy="0" r="7" fill="#8EB7FF"/><text x="-31" y="10">CSS</text></g>
+    <g transform="translate(1450 510)"><rect x="-177" y="-34" width="354" height="68" rx="34" fill="#151A16" stroke="#F5DC76" stroke-opacity=".82" stroke-width="2"/><circle cx="-145" cy="0" r="7" fill="#F5DC76"/><text x="-125" y="10">JavaScript</text></g>
+    <g transform="translate(1324 735)"><rect x="-160" y="-34" width="320" height="68" rx="34" fill="#151A16" stroke="#9EE28C" stroke-opacity=".82" stroke-width="2"/><circle cx="-128" cy="0" r="7" fill="#9EE28C"/><text x="-108" y="10">Node.js</text></g>
+    <g transform="translate(900 876)"><rect x="-145" y="-34" width="290" height="68" rx="34" fill="#151A16" stroke="#78DFF5" stroke-opacity=".82" stroke-width="2"/><circle cx="-113" cy="0" r="7" fill="#78DFF5"/><text x="-93" y="10">React.js</text></g>
+    <g transform="translate(476 735)"><rect x="-94" y="-34" width="188" height="68" rx="34" fill="#151A16" stroke="#D7F36A" stroke-opacity=".82" stroke-width="2"/><circle cx="-62" cy="0" r="7" fill="#D7F36A"/><text x="-42" y="10">SEO</text></g>
+    <g transform="translate(350 510)"><rect x="-94" y="-34" width="188" height="68" rx="34" fill="#151A16" stroke="#E7A9FF" stroke-opacity=".82" stroke-width="2"/><circle cx="-62" cy="0" r="7" fill="#E7A9FF"/><text x="-42" y="10">AEO</text></g>
+    <g transform="translate(476 285)"><rect x="-111" y="-34" width="222" height="68" rx="34" fill="#151A16" stroke="#FFB87E" stroke-opacity=".82" stroke-width="2"/><circle cx="-79" cy="0" r="7" fill="#FFB87E"/><text x="-59" y="10">UX/UI</text></g>
+  </g>
+</svg>

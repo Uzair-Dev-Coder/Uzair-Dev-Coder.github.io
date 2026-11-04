@@ -1,0 +1,668 @@
+/* =====================================================================
+   styles.css  —  Website ke "kapde aur makeup" (kaisi dikhegi)
+   =====================================================================
+   CSS ka kaam: HTML ki har cheez ko rang, size, jagah aur harkat (animation) dena.
+
+   Padhne ka aasan tareeqa:
+     Har "dabba" aise likha hota hai:   naam { cheez: qeemat; }
+     Jaise:   .btn { color: red; }   ->  "btn" naam wali har cheez ka rang laal ho jaye.
+
+   Kaam aane wale lafzon ka matlab (yeh baar baar aayenge):
+     color / background   = likhai ka rang / peeche ka rang
+     margin               = cheez ke BAHAR ki khali jagah
+     padding              = cheez ke ANDAR ki khali jagah (kinare aur likhai ke beech)
+     border               = cheez ka kinara (frame)
+     border-radius        = kinare gol karna (bara number = zyada gol)
+     display: flex        = cheezein ek line mein (saath saath) rakho
+     display: grid        = cheezein khano (rows aur columns) mein rakho
+     gap                  = khano ya cheezon ke beech faasla
+     position: fixed      = cheez screen par chipak jaye, scroll par bhi na hile
+     position: sticky     = scroll karte karte ek jagah par ruk jaye
+     transition           = badlao jhat se nahi, aaram se ho (jaise hover par)
+     animation            = apne aap chalne wali harkat (@keyframes mein likhi hoti hai)
+     z-index              = kaun si cheez kis ke UPAR dikhe (bara number = upar)
+     rem                  = size ka ek naap (1rem ~ aam likhai ka size, 16 pixel)
+     vw / vh              = screen ki chaurai / lambai ka hissa (50vw = aadhi chaurai)
+     var(--naam)          = upar tay kiya hua rang ya naap dobara istemal karna
+     @media (...)         = "agar screen aisi ho to yeh rules lagao" (phone, tablet, laptop ke liye)
+
+   Zaroori: CSS mein jo rule NEECHE likha ho wo oopar wale ko badal deta hai
+   (agar dono ek hi cheez par lagen). Isi liye file ke aakhir mein "overhaul" waale rules
+   purane rules ko naya look de dete hain.
+   ===================================================================== */
+
+
+/* =====================================================================
+   HISSA 1: Rang aur naap (variables)
+   Ek hi jagah rang likh dein, aur poori website mein wohi istemal ho.
+   Rang badalna ho to sirf yahan badlein.
+   ===================================================================== */
+
+/* :root = poora page. Yeh LIGHT (roshan) mode ke rang hain. */
+:root {
+  /* Palette (restaurant ki photos se li gayi): espresso, bhoora, lantern ka peela, chai ka terracotta, cream */
+  --bg: #F5ECDD;      /* peeche ka rang (cream) */
+  --ink: #2A1B12;     /* aam likhai ka rang (gehra bhoora) */
+  --muted: #6B5646;   /* halki likhai ka rang (kam zaroori baatein) */
+  --card: #FFF9EF;    /* dabbon (cards) ka rang */
+  --line: #E1D2BA;    /* patli lakeeron aur kinaron ka rang */
+  --brand: #9A4A12;   /* brand ka mukhya rang (buttons, qeemat) */
+  --onbrand: #FFF8EC; /* brand rang ke upar likhai ka rang */
+  --accent: #E8923A;  /* khaas rang (zor dene ke liye) */
+  --hero: #150E0A;    /* hero aur footer ka gehra rang */
+  --r: 16px;          /* kinare kitne gol hon (radius) */
+  /* Do font: Fraunces (khoobsurat serif, heading ke liye) aur Manrope (saaf, parhne ke liye).
+     Agar yeh na milein to agle (Georgia, system-ui) istemal honge. */
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--sans);
+}
+
+/* DARK (andhera) mode ke rang. Jab <html data-theme="dark"> ho to upar ke rang yeh badal dete hain. */
+[data-theme=dark] {
+  --bg: #150E0A;      /* peeche ka rang (espresso) */
+  --ink: #F4E9D8;     /* aam likhai (cream) */
+  --muted: #B9A58C;   /* halki likhai */
+  --card: #22160F;    /* dabbon ka rang */
+  --line: #3A281C;    /* lakeeron ka rang */
+  --brand: #F0A43C;   /* brand rang (lantern ka peela) */
+  --onbrand: #1A0F08; /* brand rang ke upar likhai (gehra) */
+  --accent: #D9702B;  /* khaas rang (terracotta) */
+  --hero: #150E0A;
+}
+
+
+/* =====================================================================
+   HISSA 2: Buniyadi (basic) rules jo poore page par lagte hain
+   ===================================================================== */
+
+/* "*" = har cheez. box-sizing: border-box ka matlab: padding aur border cheez ke size ke ANDAR ginte hain
+   (is se naap ka hisaab aasaan rehta hai aur cheezein bahar nahi nikalti). */
+* { box-sizing: border-box; }
+
+/* Link dabane par page jhat se nahi, aaram se scroll hota hai. */
+html { scroll-behavior: smooth; }
+
+/* Poore page ka jism (body): kinaron ki khali jagah nahi, peeche ka rang, likhai ka rang,
+   line ki oonchai 1.6 guna (parhne mein aasaan) aur rang badalne mein 0.2 second ka aaram. */
+body { margin: 0; background: var(--bg); color: var(--ink); line-height: 1.6; transition: background .2s, color .2s; }
+
+/* Headings (bare likhe hue naam) aur logo ke liye serif font. line-height 1.1 = lines qareeb qareeb. */
+h1, h2, h3, .brand { font-family: var(--serif); line-height: 1.1; }
+
+/* Section ke heading ka size. clamp(sab se chhota, behtareen, sab se bara) = size screen ke saath khud badalta hai. */
+h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin: 0 0 1rem; }
+
+/* Link ka rang wohi jo aas paas ki likhai ka hai (neela nahi). */
+a { color: inherit; }
+
+/* Keyboard (Tab dabane) se jis cheez par ho us ke gird saaf mota frame, taake pata chale kahan ho (accessibility). */
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* .wrap = beech mein rakha hua dabba. Chaurai 1100px se zyada nahi hoti, aur dono taraf se barabar khali jagah (auto). */
+.wrap { max-width: 1100px; margin: auto; padding: 0 1rem; }
+
+/* .narrow = aur patla dabba (720px), jaise FAQ aur reservation ke liye. */
+.narrow { max-width: 720px; }
+
+/* Har section: oopar neeche 3rem khali jagah. scroll-margin-top = menu se jump karne par section ka naam
+   chipki hui header ke neeche na chhup jaye. */
+section { padding: 3rem 0; scroll-margin-top: 64px; }
+
+/* .alt = thora alag rang wala section (brand rang ka 7% peeche ke rang mein mila hua). */
+.alt { background: color-mix(in srgb, var(--brand) 7%, var(--bg)); }
+
+/* .muted = halki likhai (kam zaroori). */
+.muted { color: var(--muted); }
+
+/* .plain = list ke aage ke bindu (bullet) aur faltu khali jagah hata do. */
+.plain { list-style: none; padding: 0; margin: 0; }
+
+/* .sr = sirf screen reader (nabina logon ki madad) ke liye likhai: aankhon se chhupi hui lekin parhi jati hai.
+   Isay 1 pixel ka bana kar kaat diya (clip) jata hai. */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* .skip = "Skip to menu" link: normally screen se bahar chhupa (left: -999px). Keyboard se Tab dabane par
+   (:focus) upar kone mein nazar aata hai taake keyboard wale seedha menu par ja saken. */
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 8px; top: 8px; background: #fff; color: #000; padding: .5rem; z-index: 99; }
+
+/* .row = cheezein ek line mein, beech se seedhi (align-items), aur aas paas faasla (gap), do kinaron par phailein. */
+.row { display: flex; align-items: center; gap: .5rem; justify-content: space-between; }
+/* .end = us line ki cheezein daayen kinare par (flex-end) aur oopar thori khali jagah. */
+.end { justify-content: flex-end; margin-top: 1rem; }
+
+
+/* =====================================================================
+   HISSA 3: Header (sab se oopar ki patti: logo, nav, buttons)
+   ===================================================================== */
+
+/* .bar = header. sticky + top: 0 => scroll par bhi oopar chipka rehta hai. z-index 10 = baaqi cheezon ke oopar. */
+.bar { position: sticky; top: 0; z-index: 10; background: var(--card); border-bottom: 1px solid var(--line); }
+
+/* Header ke andar ki line: cheezein shuru (left) se, oopar neeche thori jagah. */
+.bar .row { justify-content: flex-start; padding-block: .5rem; }
+
+/* Wordmark (Chai Jan ka likha hua naam): logo aur likhai ek line mein, bari motoi wali likhai, brand rang. */
+.brand { display: inline-flex; align-items: center; gap: .3rem; margin-right: auto; font-size: 1.6rem; font-weight: 800; letter-spacing: -.02em; text-decoration: none; color: var(--brand); }
+/* Purane cup icon ka size aur uski bhaap ka rang aur harkat (ab logo photo istemal hoti hai, magar rule maujood hai). */
+.brand .cup { width: 1.6em; height: 1.6em; flex: none; }
+.brand .steam { stroke: var(--accent); animation: steam 3.2s ease-in-out infinite; }
+/* "Jan" ka peela/khaas rang ka tokra: thora ghuma hua (rotate -3 degree) aur ek kona kam gol. */
+.brand .jan { background: var(--accent); color: #1B1405; padding: .02em .4em .1em; border-radius: .55em .55em .55em .15em; transform: rotate(-3deg); }
+/* Bhaap ki halki harkat: beech mein thori upar aur thori dhundli (opacity .55). */
+@keyframes steam { 50% { transform: translateY(-1.5px); opacity: .55; } }
+
+/* Jis cheez par hidden likha ho wo HAMESHA chhupi rahe (!important sab se bara hukm hai). */
+[hidden] { display: none !important; }
+
+/* Navigation (links ki patti). Agar jagah kam ho to side mein swipe se scroll hota hai.
+   Neeche ki scrollbar chhupa di hai (scrollbar-width: none) taake kharab na lage. */
+nav { display: flex; gap: .15rem; overflow-x: auto; max-width: 62vw; scrollbar-width: none; }
+/* Chrome/Safari ke liye scrollbar chhupane ka alag tareeqa. */
+nav::-webkit-scrollbar { display: none; }
+/* Bari screen (1000px ya zyada) par nav ko poori jagah do aur scroll ki zaroorat nahi. */
+@media (min-width: 1000px) { nav { max-width: none; overflow: visible; } }
+/* Nav ka har link: thori jagah, gol kinare, underline nahi, aur ek line mein (white-space: nowrap). */
+nav a { padding: .45rem .55rem; border-radius: 8px; text-decoration: none; white-space: nowrap; transition: background .2s, transform .2s; }
+/* Mouse upar laane par (hover): halka rang aur 4% bara. */
+nav a:hover { background: color-mix(in srgb, var(--brand) 14%, transparent); transform: scale(1.04); }
+
+/* .icon = gol buttons (theme aur cart). 44px = angootha aaram se dab sake. */
+.icon { min-width: 44px; min-height: 44px; border: 1px solid var(--line); border-radius: 50%; background: var(--card); color: var(--ink); font: inherit; cursor: pointer; transition: box-shadow .2s; }
+/* Hover par halki chamak (glow) aati hai. */
+.icon:hover { box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 60%, transparent); }
+/* Theme button ke andar ka chand/suraj: hover par thora ghoomta hai (40 degree). */
+.ico { display: inline-block; transition: transform .4s; }
+.icon:hover .ico { transform: rotate(40deg); }
+
+
+/* =====================================================================
+   HISSA 4: Hero (page ka pehla bara hissa) — pehla version
+   Dhyan: neeche "premium overhaul" mein hero dobara likha gaya hai aur wo is ko naya look deta hai.
+   ===================================================================== */
+
+/* Hero ka dabba: gehra peeche ka rang, cream likhai, oopar neeche khali jagah. */
+.hero { background: var(--hero); color: #F4E9D8; padding: 2.5rem 0; }
+/* Hero ka bara heading: motee likhai, neeche khali jagah. */
+.hero h1 { margin: 0 0 1.5rem; font-weight: 800; }
+/* h1 ke andar ke dono tukde (bara naam aur chhoti tagline) alag alag line par. */
+.hero h1 span { display: block; }
+/* "I Love Chai Jan" wali line: bara size (screen ke hisaab se), accent rang, lafzon ke beech thora kam faasla. */
+.hero .love { font-size: clamp(2.4rem, 8vw, 4.2rem); color: var(--accent); letter-spacing: -.02em; }
+/* Tagline: chhota size, thori motee, 24 harf se zyada chaura nahi. */
+.hero .sub { font-size: clamp(1.1rem, 3.2vw, 1.6rem); font-weight: 600; margin-top: .4rem; max-width: 24ch; }
+/* Hero ke andar ka grid: cheezein khano mein, beech mein 2rem faasla. */
+.hero-grid { display: grid; gap: 2rem; }
+/* 800px se bari screen par do columns (likhai bara, photo chhoti) aur beech se seedhi. */
+@media (min-width: 800px) { .hero-grid { grid-template-columns: 1.2fr 1fr; align-items: center; } }
+
+/* .seg = branch chunne wale do bare buttons ki patti. flex-wrap = jagah kam ho to neeche aa jayen. */
+.seg { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+/* Har branch button: barabar jagah (flex: 1), kam az kam 48px ooncha, gol kinare, mota kinara. */
+.seg button { flex: 1; min-height: 48px; padding: .6rem 1rem; border-radius: var(--r); border: 2px solid #5A3E2B; background: transparent; color: inherit; font: inherit; font-weight: 600; cursor: pointer; transition: border-color .2s, box-shadow .2s; }
+/* Hover par kinara accent rang ka ho jata hai. */
+.seg button:hover { border-color: var(--accent); }
+/* Jo branch chuni hui hai (aria-pressed=true): accent kinara, saaya aur halka peela peeche ka rang. */
+.seg button[aria-pressed=true] { border-color: var(--accent); box-shadow: 0 4px 18px rgba(232,163,23,.35); background: rgba(232,163,23,.12); }
+
+/* "Open now..." wali line: serif font, bara size, aur baayen taraf mota rangeen kinara (border-left). */
+.status { font-family: var(--serif); font-size: clamp(1.3rem, 3.5vw, 2rem); margin: .5rem 0 1rem; padding-left: 1rem; border-left: 6px solid; }
+/* Khula hai to kinara hara, band ho to accent rang ka. */
+.status.open { border-color: #5FD08F; }
+.status.shut { border-color: var(--accent); }
+
+/* Hero ke andar ke links safed, aur "Weekly hours" par ungli ka nishan (cursor: pointer). */
+.hero a { color: #fff; }
+.hero summary { cursor: pointer; margin-bottom: .5rem; }
+
+/* .media = purani khali jagah jahan photo ki darkhwast thi (ab arch wali photo hai, yeh rule baaqi hai). */
+.media { min-height: 240px; border: 2px dashed #5A3E2B; border-radius: var(--r); display: grid; place-items: center; text-align: center; padding: 1rem; color: #C9B79E; }
+
+
+/* =====================================================================
+   HISSA 5: Buttons
+   ===================================================================== */
+
+/* .btn = aam button: brand rang, gol kinare, kam az kam 44px ooncha (angootha aaram se dab sake). */
+.btn { display: inline-block; background: var(--brand); color: var(--onbrand); border: 0; border-radius: 10px; padding: .7rem 1.2rem; min-height: 44px; font: inherit; font-weight: 700; cursor: pointer; text-decoration: none; transition: transform .15s, box-shadow .15s; }
+/* Hover par button 2px upar uthta hai aur saaya aata hai. */
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.2); }
+/* .accent = khaas rang ka button (peela/terracotta). .ghost = khali (shaffaf) button sirf kinare ke saath. */
+.btn.accent { background: var(--accent); color: #1B1405; }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+
+
+/* =====================================================================
+   HISSA 6: Menu
+   ===================================================================== */
+
+/* Sab likhne ki jagahein (input), dropdown (select) aur bari likhne ki jagah (textarea):
+   poori chaurai, gol kinare, aur wohi rang jo website ke hain. */
+input, select, textarea { font: inherit; width: 100%; padding: .65rem .8rem; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--ink); }
+
+/* Menu ke andar category ke heading (pehla version; neeche overhaul mein dobara likha gaya). */
+#menu h3 { margin: 1.5rem 0 .6rem; font-size: 1.3rem; }
+
+/* .chips = category/filter ke chhote gol buttons ki patti. Jagah kam ho to side mein swipe. */
+.chips { display: flex; gap: .5rem; overflow-x: auto; padding: .8rem 0; }
+/* Har chip: gol goli (99px), kam az kam 40px ooncha. flex: none = size chhota na ho. */
+.chip { flex: none; min-height: 40px; padding: .4rem .9rem; border-radius: 99px; border: 1px solid var(--line); background: var(--card); color: var(--ink); font: inherit; cursor: pointer; transition: background .2s; }
+/* Jo chip chuni hui ho wo brand rang se bhar jati hai. */
+.chip[aria-pressed=true] { background: var(--brand); color: var(--onbrand); border-color: var(--brand); }
+
+/* .grid = items ke khano ka jaal: har khana kam az kam 250px chaura, jitne fit hon utne columns (auto-fill). */
+.grid { display: grid; gap: .75rem; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+
+/* .item = menu ka ek item ka dabba/button: naam baayen, qeemat daayen (space-between), gol kinare. */
+.item { width: 100%; min-height: 56px; display: flex; justify-content: space-between; gap: .75rem; align-items: center; text-align: left; padding: .7rem 1rem; border: 1px solid var(--line); border-radius: var(--r); background: var(--card); color: var(--ink); font: inherit; cursor: pointer; transition: border-color .2s, transform .15s; }
+/* Hover par kinara accent rang ka aur 2px upar. */
+.item:hover { border-color: var(--accent); transform: translateY(-2px); }
+/* Qeemat (b): ek line mein rahe aur brand rang ki ho. */
+.item b { white-space: nowrap; color: var(--brand); }
+/* "Koi item nahi mila" ka message: halka rang. */
+.empty { color: var(--muted); padding: 1rem 0; }
+
+
+/* =====================================================================
+   HISSA 7: Cards, forms, reviews, gallery (purana), FAQ, footer
+   ===================================================================== */
+
+/* .card = aam dabba (reviews, forms): card rang, patla kinara, gol kinare, andar khali jagah. */
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 1rem 1.2rem; }
+/* Card ke andar ki paragraph: kam faasla. .stars = review ke sitare accent rang aur thori khuli jagah ke saath. */
+.card p { margin: .3rem 0; }
+.stars { color: var(--accent); letter-spacing: 2px; }
+
+/* .form = form ki cheezein ek ke neeche ek (grid), har label ke andar naam aur khana ek ke neeche ek, naam motee. */
+.form { display: grid; gap: .8rem; margin-top: 1.5rem; }
+.form label { display: grid; gap: .25rem; font-weight: 600; }
+
+/* About ki features ki list: baayen taraf thori khali jagah. */
+.feat { padding-left: 1.2rem; }
+
+/* Purani gallery ke rules (ab neeche bento gallery in par naya look deti hai). figure = photo ka dabba. */
+.gal { display: grid; gap: .75rem; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+.gal figure { margin: 0; aspect-ratio: 4/3; border-radius: var(--r); overflow: hidden; }
+/* Photo dabbe ko poori tarah bhare (object-fit: cover = kaat kar fit, kheench kar kharab nahi). */
+.gal img { width: 100%; height: 100%; object-fit: cover; }
+
+/* .ph = "Photo placeholder" (jab asli photo na ho): tooti hui lakeer ka dabba, likhai beech mein. */
+.ph { display: grid; place-items: center; text-align: center; border: 2px dashed var(--line); color: var(--muted); }
+
+/* FAQ ka har sawal ka dabba (details) aur uska sawal wala hissa (summary). */
+#faq details { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: .75rem 1rem; margin-top: .6rem; }
+#faq summary { cursor: pointer; font-weight: 600; }
+
+/* Footer (sab se neeche ka hissa): gehra rang, cream likhai, safed links. */
+.foot { background: var(--hero); color: #EADCC6; padding: 2.5rem 0; }
+.foot a { color: #fff; }
+/* Footer aur hero ke links ke neeche ek lakeer jo hover par baayen se daayen taraf phail jati hai
+   (background-size 0 se 100% tak). Link ki aam underline hata di. */
+.foot a, .hero details a { background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat; text-decoration: none; transition: background-size .25s; }
+.foot a:hover { background-size: 100% 2px; }
+
+
+/* =====================================================================
+   HISSA 8: Popups (dialogs): item, cart, gallery
+   ===================================================================== */
+
+/* Har popup (dialog): kinara, gol kinare, card rang, aur screen ki 92% chaurai ya 440px (jo chhota ho). */
+dialog { border: 1px solid var(--line); border-radius: var(--r); background: var(--card); color: var(--ink); padding: 1.25rem; width: min(92vw, 440px); }
+/* ::backdrop = popup ke peeche ka parda: kaala aur 55% dhundla. */
+dialog::backdrop { background: rgba(0,0,0,.55); }
+/* Popup khulte waqt "pop" harkat (0.22 second): halka sa upar se aur chhota se bara. */
+dialog[open] { animation: pop .22s ease; }
+
+/* Cart ka popup: daayen kinare par chipka (margin-left: auto), poori oonchai (100dvh), kone gol nahi, andar scroll ho sake. */
+#cartDlg { margin: 0 0 0 auto; height: 100dvh; max-height: 100dvh; width: min(100vw, 420px); border-radius: 0; overflow: auto; }
+/* Cart khulte waqt daayen se andar sarakta hai ("slide"). */
+#cartDlg[open] { animation: slide .25s ease; }
+
+/* pop ki harkat: shuru mein 12px neeche, 97% size aur dhundla; phir apni asli jagah. */
+@keyframes pop { from { opacity: 0; transform: translateY(12px) scale(.97); } }
+/* slide ki harkat: shuru mein 40px daayen aur dhundla; phir asli jagah. */
+@keyframes slide { from { transform: translateX(40px); opacity: 0; } }
+
+/* .opt = size ka option (radio button + naam): ek line mein, kam az kam 40px ooncha. */
+.opt { display: flex; gap: .5rem; align-items: center; min-height: 40px; }
+/* Radio button ko poori chaurai na milay (auto), warna bahut bara ho jata hai. */
+.opt input { width: auto; }
+
+/* Cart ki har line: naam baayen aur quantity buttons daayen; neeche patli lakeer. */
+#cartLines li { display: flex; justify-content: space-between; gap: .5rem; padding: .6rem 0; border-bottom: 1px solid var(--line); }
+/* .qty = (−) 1 (+) wali quantity ki patti. Buttons kam az kam 36px, gol kinare. */
+.qty { display: flex; align-items: center; gap: .3rem; }
+.qty button { min-width: 36px; min-height: 36px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; font: inherit; }
+/* .big = item popup wali bari quantity ki patti; us ka number wala khana 70px chaura aur beech mein. */
+.qty.big { margin-top: 1rem; }
+.qty.big input { width: 70px; text-align: center; }
+
+
+/* =====================================================================
+   HISSA 9: Upar ki "band hai" wali bar (announcement bar)
+   ===================================================================== */
+
+/* Bar: accent rang, ek line, chhoti likhai, patli (thori si khali jagah). */
+.announce { display: flex; align-items: center; gap: .5rem; background: var(--accent); color: #1B1405; font-size: .9rem; font-weight: 600; padding: .25rem .75rem; }
+/* .slidebox = likhai ke sarakne ka raasta. overflow: hidden = jo hissa bahar nikle wo chhup jaye. flex: 1 = baaqi poori jagah le. */
+.slidebox { flex: 1; overflow: hidden; }
+/* Likhai: ek line mein (nowrap) aur "marq" harkat se 16 second mein daayen se baayen sarakti hai, hamesha (infinite). */
+.announce p { display: inline-block; margin: 0; white-space: nowrap; animation: marq 16s linear infinite; }
+/* DISABLED - FUTURE REFERENCE: Pause/Play control styles.
+.announce.paused p { animation: none; white-space: normal; }
+.barbtn { flex: none; min-height: 32px; padding: 0 .7rem; border-radius: 99px; border: 1.5px solid #1B1405; background: transparent; color: inherit; font: inherit; font-size: .8rem; cursor: pointer; }
+.barbtn:hover { background: rgba(0,0,0,.12); }
+*/
+/* marq ki harkat: screen ke daayen kinare se shuru (100vw) aur apni poori chaurai ke baayen (-100%) tak. */
+@keyframes marq { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
+
+
+/* =====================================================================
+   HISSA 10: WhatsApp ka gol button (neeche kone mein)
+   ===================================================================== */
+
+/* position: fixed = scroll par bhi daayen neeche kone mein chipka rahe. calc(...) = 1rem aur phone ke neeche ki
+   hifazati jagah (safe-area, jaise iPhone ki line) ka jod. z-index 9 = aam cheezon ke oopar. Hara rang, gol, saaya. */
+.wa { position: fixed; right: 1rem; bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); z-index: 9; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: grid; place-items: center; box-shadow: 0 4px 14px rgba(0,0,0,.3); transition: transform .2s, box-shadow .2s; }
+/* Button ke andar ka WhatsApp nishan ka size. */
+.wa svg { width: 34px; height: 34px; }
+/* Hover ya keyboard focus par 10% bara aur hari chamak. */
+.wa:hover, .wa:focus-visible { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37,211,102,.55); }
+/* Footer ke neeche 5rem extra jagah, taake WhatsApp button footer ki likhai ko na dhanke. */
+.foot { padding-bottom: 5rem; }
+/* Chhoti screen (640px tak) par button thora chhota aur kinare ke qareeb. */
+@media (max-width: 640px) { .wa { width: 52px; height: 52px; right: .75rem; } }
+
+
+/* =====================================================================
+   HISSA 11: Loading screen (preloader)
+   ===================================================================== */
+
+/* .loader = poori screen par parda (fixed, inset: 0 = chaaron kinaron tak). z-index 100 = sab se oopar.
+   Beech mein cheezein ek ke neeche ek, gehra bhoora gol roshni wala peeche ka rang. */
+.loader { position: fixed; inset: 0; z-index: 100; display: grid; place-content: center; justify-items: center; gap: .8rem; text-align: center; color: #F4E9D8; background: radial-gradient(circle at 50% 38%, #3A2416, var(--hero) 72%); transition: opacity .5s ease, visibility .5s; }
+/* "out" lagne par parda dheere se ghaib ho jata hai. */
+.loader.out { opacity: 0; visibility: hidden; }
+/* Loading ke dauran page scroll na ho (overflow: hidden). */
+body.loading { overflow: hidden; }
+/* "I Love Chai Jan" ka loader wala bara likha hua naam. */
+.lt { margin: 0; font-family: var(--serif); font-weight: 800; font-size: clamp(2.2rem, 8vw, 3.6rem); letter-spacing: -.02em; color: var(--accent); }
+/* Cup wali tasveer: screen ki 92% ya 520px tak chauri. overflow: hidden = cup jo bahar sarak jaye wo kat jaye. */
+.scene { width: min(92vw, 520px); height: auto; overflow: hidden; }
+/* Percent ka number: tabular-nums = har ank barabar chaura, taake number badalte waqt likhai hilti na rahe. */
+.pct { margin: 0; font-size: 1.4rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+/* "Skip" button: oopar daayen kone mein, gol aur khali. */
+.skipbtn { position: absolute; top: 1rem; right: 1rem; min-height: 40px; padding: 0 1rem; border-radius: 99px; border: 1px solid #6A4A33; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.skipbtn:hover { background: rgba(255,255,255,.1); }
+/* Chai ke bulbule (froth): thora upar neeche hilte hain (bob). Aadhe bulbule 0.3 second der se, taake ek saath na hilein. */
+.froth circle { transform-box: fill-box; transform-origin: center; animation: bob .9s ease-in-out infinite alternate; }
+.froth circle:nth-child(even) { animation-delay: .3s; }
+/* Bhaap (steam) shuru mein bilkul chhupi hui. */
+.steam path { opacity: 0; }
+/* 100% par ("done" lagne par) bhaap nazar aati hai aur upar uth kar ghaib hoti hai (rise), baar baar. Teen lakeeron ki der alag alag. */
+.done .steam path { opacity: .85; animation: rise 1.5s ease-out infinite; }
+.done .steam path:nth-child(2) { animation-delay: .3s; }
+.done .steam path:nth-child(3) { animation-delay: .6s; }
+/* bob: bulbula 3px upar aur 15% bara. */
+@keyframes bob { to { transform: translateY(-3px) scale(1.15); } }
+/* rise: bhaap neeche se (10px) nazar aana shuru, beech mein sab se saaf, upar (20px) jaakar ghaib. */
+@keyframes rise { 0% { opacity: 0; transform: translateY(10px); } 30% { opacity: .9; } 100% { opacity: 0; transform: translateY(-20px); } }
+
+
+/* =====================================================================
+   HISSA 12: Delivery map, legend aur location ke controls
+   ===================================================================== */
+
+/* .dgrid = map aur controls ka jaal: phone par ek ke neeche ek; 900px se bari screen par do column (map bara). */
+.dgrid { display: grid; gap: 1.25rem; }
+@media (min-width: 900px) { .dgrid { grid-template-columns: 1.4fr 1fr; } }
+
+/* Map ka dabba: kam az kam 340px ooncha, screen ki 55% (par 480px se zyada nahi), gol kinare, kinara bhi. */
+.map { min-height: 340px; height: 55vh; max-height: 480px; border-radius: var(--r); border: 1px solid var(--line); overflow: hidden; background: var(--card); display: grid; place-items: center; }
+/* "Map setup needed" ka dabba: tooti hui lakeer ka kinara, likhai beech mein. */
+.setup { margin: 1rem; padding: 1.25rem; text-align: center; border: 2px dashed var(--line); border-radius: var(--r); }
+
+/* Legend (nishani ki list): zones ke naam ek line mein, jagah kam ho to neeche aa jayen (wrap). */
+.legend { display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; margin: 0 0 1rem; }
+.legend li { display: flex; align-items: center; gap: .6rem; }
+/* .sw = rangeen gol nishan: 22px ka gol, rang var(--c) se aata hai (JS har zone ke liye alag rang deta hai). */
+.sw { flex: none; width: 22px; height: 22px; border-radius: 50%; border: 3px solid var(--c); background: color-mix(in srgb, var(--c) 18%, transparent); }
+/* data-dash wala (Zone 3) ka kinara tooti hui lakeer ka (rang na pehchanne walon ke liye bhi farq). */
+.sw[data-dash] { border-style: dashed; }
+/* .zl = map ke gol par chhota label ("Zone 1: Rs. 0"): gol goli, rangeen kinara, safed peeche, gehri likhai. */
+.zl { position: absolute; transform: translate(-50%, -50%); white-space: nowrap; padding: .1rem .55rem; border-radius: 99px; border: 2px solid var(--c); background: #fff; color: #1B2420; font: 600 12px system-ui; }
+
+/* "Enter coordinates instead" ka hissa: labels aur button ke faasle. */
+.coords { margin: .8rem 0; }
+.coords label { display: block; margin: .5rem 0; font-weight: 600; }
+.coords .btn { margin-top: .3rem; }
+/* Cart ke andar zone wala dabba. */
+#zoneWrap { margin: .8rem 0; padding: .7rem 1rem; }
+/* Hero ke ghost buttons safed likhai aur bhoore kinare ke saath. */
+.hero .ghost { color: #fff; border-color: #6A4A33; }
+
+
+/* =====================================================================
+   HISSA 13: Harkat kam karne walon ke liye
+   Kuch logon ko tez harkat se chakkar ya takleef hoti hai. Agar unhon ne apne device mein
+   "animation kam karo" chuna hai to yahan sab animation aur transition band ho jati hain.
+   ===================================================================== */
+@media (prefers-reduced-motion: reduce) { *, ::before, ::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+/* Aise logon ke liye upar ki bar mein likhai sarakne ki bajaye seedhi aur beech mein dikhe. */
+@media (prefers-reduced-motion: reduce) { .announce p { white-space: normal; text-align: center; } .slidebox { text-align: center; } }
+/* DISABLED - FUTURE REFERENCE: Pause/Play-specific motion preference rule.
+@media (prefers-reduced-motion: reduce) { .announce p { white-space: normal; text-align: center; } .barbtn { display: none; } .slidebox { text-align: center; } }
+*/
+/* Chhoti screen (640px tak): nav ki chaurai kam aur logo thora chhota. */
+@media (max-width: 640px) { nav { max-width: 38vw; } .brand { font-size: 1.2rem; } }
+
+
+/* =====================================================================
+   HISSA 14: Mobile ke liye behtari
+   Header do rows mein (logo + buttons, phir nav), bade touch buttons, ek column, aur neeche "View cart" bar.
+   ===================================================================== */
+
+/* Phone ki likhai ka size apne aap bara na ho (landscape mein). */
+html { -webkit-text-size-adjust: 100%; }
+/* Page daayen-baayen na hile (overflow-x: clip = jo bahar nikle usay kaat do). */
+body { overflow-x: clip; }
+/* Photos aur videos apni jagah se bahar na nikalein. */
+img, video { max-width: 100%; }
+/* Popup screen ki oonchai ke 90% se bara na ho; zyada ho to andar scroll ho. */
+dialog { max-height: 90dvh; overflow: auto; }
+
+/* Tablet aur chhoti screen (999px tak): */
+@media (max-width: 999px) {
+  /* Header ki cheezein do rows mein aa jayen (wrap); nav poori chaurai ki dusri row banaye. */
+  .bar .row { flex-wrap: wrap; row-gap: 0; padding-block: .4rem; }
+  /* order: 3 = sab se aakhir mein; flex: 1 0 100% = poori chaurai. mask = daayen kinare par dhundla, taake pata chale aur links hain. */
+  nav { order: 3; flex: 1 0 100%; max-width: 100%; -webkit-mask-image: linear-gradient(to right, #000 88%, transparent); mask-image: linear-gradient(to right, #000 88%, transparent); }
+  /* Header ab do rows ka hai (bari), isliye section ke naam ke oopar zyada jagah. */
+  section { scroll-margin-top: 104px; }
+}
+
+/* Phone (640px tak): */
+@media (max-width: 640px) {
+  /* Kinaron ki khali jagah thori kam. */
+  .wrap { padding-inline: .9rem; }
+  /* Sections ki oonchai kam. */
+  section { padding: 2.25rem 0; }
+  .hero { padding: 1.75rem 0; }
+  /* Branch buttons: kam az kam 150px chaure, jagah na ho to ek ke neeche ek. */
+  .seg button { flex: 1 1 150px; }
+  /* Hero aur forms ke buttons poori chaurai ke (angootha aasani se dabe). */
+  .hero .btn, .form .btn { width: 100%; margin-top: .4rem; text-align: center; }
+  /* Menu ke khano ka ek hi column. */
+  .grid { grid-template-columns: 1fr; }
+  .item { min-height: 60px; }
+  /* Map thora chhota (300px) taake page scroll karna aasaan rahe. */
+  .map { min-height: 300px; height: 50vh; }
+  /* Map ke labels chhote. */
+  .zl { font-size: 11px; padding: .05rem .4rem; }
+  .announce { font-size: .85rem; }
+  dialog { padding: 1rem; }
+}
+
+/* "View cart" bar: neeche, WhatsApp button ke bagal mein. left aur right se jagah chhor di taake cart aur WhatsApp ek doosre ko na dhankein. */
+.cartbar { display: none; position: fixed; left: .75rem; right: 5rem; bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); z-index: 9; min-height: 52px; border: 0; border-radius: 99px; background: var(--brand); color: var(--onbrand); font: inherit; font-weight: 700; box-shadow: 0 4px 14px rgba(0,0,0,.3); cursor: pointer; }
+/* Sirf chhoti screen (899px tak) par nazar aaye. */
+@media (max-width: 899px) { .cartbar { display: block; } }
+
+/* Touch screen (jis par mouse nahi): hover wale effects band, kyunke ungli hatane ke baad bhi woh atke rehte hain. */
+@media (hover: none) { .item:hover, .btn:hover, nav a:hover, .wa:hover { transform: none; box-shadow: none; } .wa:hover { box-shadow: 0 4px 14px rgba(0,0,0,.3); } }
+/* Touch screen par buttons bade (44px), taake ungli se dabana aasaan ho. */
+@media (pointer: coarse) {
+  nav a { display: grid; place-items: center; min-height: 44px; }
+  .chip, .opt { min-height: 44px; }
+  .qty button { min-width: 44px; min-height: 44px; }
+   /* DISABLED - FUTURE REFERENCE: .barbtn { min-height: 36px; } */
+  summary { padding-block: .35rem; }
+}
+
+
+/* =====================================================================
+   HISSA 15: Delivery fee, address ka dabba aur item ka live total
+   ===================================================================== */
+
+/* Location ke do buttons ek ke neeche ek, poori chaurai ke. */
+.locbtns { display: grid; gap: .5rem; margin: .6rem 0; }
+.locbtns .btn { width: 100%; text-align: center; }
+/* Address likhne ka dabba aur uska label. */
+.addrbox { margin: .6rem 0; }
+.addrbox label { display: block; font-weight: 600; margin-bottom: .3rem; }
+/* Address ka khana aur "Find" button ek line mein; khana baaqi jagah le. */
+.addrbox form { display: flex; gap: .5rem; }
+.addrbox input { flex: 1; min-width: 0; }
+/* Delivery fee: bara aur motay harf, brand rang. */
+.fee { margin: .8rem 0 .2rem; font-size: 1.3rem; font-weight: 800; color: var(--brand); }
+/* Item popup ka live total ("4 × Rs. 150 = Rs. 600"): bara, motay harf, brand rang. */
+.itotal { margin: .9rem 0 0; font-size: 1.25rem; font-weight: 800; color: var(--brand); }
+/* Location wale card tak scroll karne par header uske oopar na aaye. */
+#pickCard { scroll-margin-top: 110px; }
+/* Phone par controls map ke OOPAR dikhte hain (order: -1), taake dono ek saath nazar aayen. */
+@media (max-width: 899px) { .pick { order: -1; } }
+
+
+/* =====================================================================
+   HISSA 16: PREMIUM OVERHAUL — restaurant ki roshni aur texture se milta hua naya look
+   Yeh rules neeche likhe hain isliye upar ke purane rules ko badal dete hain.
+   ===================================================================== */
+
+/* Body ka font dobara tay (Manrope). */
+body { font-family: var(--sans); }
+/* Headings ke harfon mein halka sa kam faasla. */
+h1, h2, h3 { letter-spacing: -.01em; }
+/* Section ke heading bare aur thore patle motay. */
+h2 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; }
+/* Bari screen (641px se zyada) par sections ke oopar neeche zyada khali jagah (kusha, mehngi shakal). */
+@media (min-width: 641px) { section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; } }
+/* Sab buttons gol goli (pill) shakal ke. */
+.btn { border-radius: 99px; padding: .8rem 1.5rem; letter-spacing: .01em; }
+
+/* ---- Header: sheeshe jaisa (glass) asar aur asli logo ---- */
+/* Header ka peeche ka rang thora shaffaf (72%) aur peeche ki cheezein dhundli (blur) dikhen. */
+.bar { background: color-mix(in srgb, var(--bg) 72%, transparent); -webkit-backdrop-filter: blur(16px) saturate(1.3); backdrop-filter: blur(16px) saturate(1.3); }
+/* Gol buttons ka peeche ka rang shaffaf. */
+.icon { background: transparent; }
+.brand { font-family: var(--serif); }
+/* Asli logo ki oonchai 40px. */
+.brand .logo { height: 40px; width: auto; flex: none; }
+/* Safed logo roshan (light) mode mein cream par nazar nahi aata, isliye brightness(0) se kaala kar dete hain. */
+[data-theme=light] .brand .logo { filter: brightness(0); }
+
+/* ---- Cinematic hero: poori chaurai ki photo, parallax aur arch frame ---- */
+/* Hero: poori screen ki oonchai (par 920px se zyada nahi). isolation: isolate = is ke andar ke z-index alag rahen. overflow: hidden = photo bahar na nikle. */
+.hero { position: relative; isolation: isolate; min-height: min(100svh, 920px); display: grid; align-items: center; padding: 4rem 0 7rem; overflow: hidden; }
+/* Peeche ki photo: poori chaurai, thodi oopar se bahar (top: -8%, height: 116%) taake parallax mein khali jagah na dikhe. z-index: -2 = sab se peeche. */
+.hero-bg { position: absolute; left: 0; top: -8%; width: 100%; height: 116%; z-index: -2; will-change: transform; background: radial-gradient(ellipse at 72% 30%, #80502f 0, transparent 40%), linear-gradient(145deg, #21160f, #51321d 58%, #17100d); }
+/* Photo ke upar gehra parda (gradient): baayen se gehra, daayen se halka, aur neeche se gehra, taake likhai saaf parhi jaye. */
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(15,9,6,.93) 0%, rgba(15,9,6,.66) 55%, rgba(15,9,6,.35) 100%), linear-gradient(to top, rgba(15,9,6,.8), transparent 35%); }
+/* "I Love Chai Jan": bara serif, cream rang, harf qareeb qareeb. */
+.hero h1 .love { font-size: clamp(2.8rem, 9.5vw, 6.4rem); font-weight: 800; line-height: .98; color: #F4E9D8; letter-spacing: -.025em; }
+/* "Chai Jan" lafz peela aur teda (italic). */
+.hero h1 .love em { color: #F0A43C; font-style: italic; }
+/* Tagline: chhote BARE HARFON mein (uppercase), harfon ke beech khula faasla (letter-spacing). */
+.hero h1 .sub { margin-top: 1rem; max-width: none; font: 700 clamp(.78rem, 2.3vw, .95rem) var(--sans); letter-spacing: .2em; text-transform: uppercase; color: #E3D2BA; }
+.hero h2 { font-size: 1.5rem; margin: 0 0 .4rem; }
+/* Arch (mehrab jaisi) photo: oopar se bohat gol (999px), neeche se thora gol (22px), peele kinare aur chamak. 3/4 = chaurai:lambai. */
+.arch { justify-self: center; width: min(62vw, 340px); aspect-ratio: 3/4; border-radius: 999px 999px 22px 22px; overflow: hidden; border: 1px solid rgba(240,164,60,.45); box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 70px rgba(240,164,60,.2); will-change: transform; }
+/* Arch ke andar ki photo poori bhare. */
+.arch img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Bari screen par hero ke do column: likhai thori bari, arch chhoti. */
+@media (min-width: 800px) { .hero-grid { grid-template-columns: 1.25fr .75fr; } }
+/* Hero ka "Browse the menu" button peela. */
+.hero .btn.accent { background: #F0A43C; color: #1A0F08; }
+
+/* ---- Delivery section hero ke upar thora chadha hua (gehraai ka ehsaas) ---- */
+/* margin-top: -2.5rem = hero ke neeche ke hisse par charhta hai. Oopar ke kone gol aur oopar ki taraf saaya. */
+#delivery { position: relative; z-index: 2; margin-top: -2.5rem; border-radius: 32px 32px 0 0; box-shadow: 0 -24px 60px rgba(0,0,0,.35); }
+/* Dark mode mein map ki tasveer ke rang ulta kar ke (invert) gehra bana dete hain, taake website se mele. */
+[data-theme=dark] .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(.92) contrast(.9) saturate(.7); }
+
+/* ---- Cards aur menu items: cursor ke saath chalne wali roshni ---- */
+/* position: relative = andar ki roshni (::before) isi ke hisaab se jagah le. */
+.item, .card, .gb { position: relative; }
+/* ::before = ek chhupi hui parat jo hover par nazar aati hai: --mx/--my (mouse ki jagah) par halki peeli gol roshni. */
+.item::before, .card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s; background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--brand) 20%, transparent), transparent 65%); }
+/* Hover par parat poori nazar aaye (opacity 1). */
+.item:hover::before, .card:hover::before { opacity: 1; }
+/* Menu item: card ka rang, aur harkat narm (cubic-bezier = narm shuru aur narm khatam). */
+.item { background: var(--card); transition: border-color .3s, transform .45s cubic-bezier(.22,1,.36,1), box-shadow .3s; }
+/* Hover par kinara brand rang ka (65%) aur saaya. */
+.item:hover { border-color: color-mix(in srgb, var(--brand) 65%, transparent); box-shadow: 0 12px 32px rgba(0,0,0,.3); }
+/* Item ka naam thora motay; qeemat serif font mein. */
+.item span { font-weight: 600; }
+.item b { font-family: var(--serif); font-size: 1.05rem; }
+
+/* ---- Menu: magazine jaisi category ke heading (01, 02, 03...) ---- */
+/* counter-reset = ginti sifar se shuru. Har h3 par counter-increment se ginti ek barhti hai. */
+#menuList { counter-reset: cat; }
+#menuList h3 { counter-increment: cat; display: flex; align-items: baseline; gap: .8rem; margin: 2.4rem 0 1rem; padding-bottom: .6rem; border-bottom: 1px solid var(--line); font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 600; }
+/* ::before = heading ke shuru mein chhota number (01, 02...) khud likha jata hai, brand rang mein. */
+#menuList h3::before { content: counter(cat, decimal-leading-zero); font: 700 .8rem var(--sans); letter-spacing: .2em; color: var(--brand); }
+
+/* ---- About: ek taraf likhai, ek taraf photo (barabar nahi, khoobsurat) ---- */
+.about-grid { display: grid; gap: 2rem; align-items: center; }
+/* Bari screen par do column (likhai thori bari). */
+@media (min-width: 800px) { .about-grid { grid-template-columns: 1.1fr .9fr; } }
+/* About ki photo: 4:5 shakal, ek kona bohat gol (140px) baaqi kam gol, saaya. */
+.about-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 24px 140px 24px 24px; box-shadow: 0 30px 70px rgba(0,0,0,.4); }
+/* Features ki list ke nishan (bindu) brand rang ke. */
+.feat li::marker { color: var(--brand); }
+
+/* ---- Bento gallery (alag alag size ki photos ka khoobsurat jaal) aur lightbox ---- */
+/* Phone par 2 column, har qatar 150px ooncha. grid-auto-flow: dense = khali jagah bhar kar photos fit karo. */
+.gal { display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-rows: 150px; grid-auto-flow: dense; gap: .75rem; }
+/* Bari screen par 4 column aur har qatar 190px. */
+@media (min-width: 800px) { .gal { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 190px; } }
+/* .gb = gallery ki photo ka button: gol kinare, kinara nahi, zoom wala cursor (dabane par bari khulti hai). */
+.gb { padding: 0; border: 0; border-radius: 20px; overflow: hidden; background: var(--card); cursor: zoom-in; aspect-ratio: auto; }
+/* Photo dabbe ko bhare, aur hover par aaram se 7% bari (zoom) hoti hai. */
+.gb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .9s cubic-bezier(.22,1,.36,1); }
+.gb:hover img, .gb:focus-visible img { transform: scale(1.07); }
+/* Hover par neeche se halka kaala parda (photo par roshni ka asar). */
+.gb::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .4s; background: linear-gradient(to top, rgba(0,0,0,.4), transparent 55%); }
+.gb:hover::after { opacity: 1; }
+/* Photo ke size: wide = 2 khane chauri, tall = 2 khane lambi, big = 2 x 2. */
+.gb.wide { grid-column: span 2; }
+.gb.tall { grid-row: span 2; }
+.gb.big { grid-column: span 2; grid-row: span 2; }
+/* Lightbox (bari photo ka popup): 94% chaurai ya 900px, beech mein likhai. */
+#lbDlg { width: min(94vw, 900px); padding: .75rem; text-align: center; }
+/* Bari photo screen ki oonchai ke 68% se zyada nahi, gol kinare. */
+#lbImg { max-width: 100%; max-height: 68dvh; border-radius: 12px; }
+/* Previous / Close / Next ke buttons: ek line mein, kinaron par. */
+.lbbar { display: flex; justify-content: space-between; gap: .5rem; }
+
+/* ---- Scroll karte hi cheezein dheere se ubharti hain ---- */
+/* .rv = shuru mein chhupi aur 28px neeche. JavaScript (app.js) yeh class sirf tab lagata hai jab harkat ki ijazat ho. */
+.rv { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); }
+/* .in = screen par aa gayi: poori nazar aaye aur apni asli jagah par. */
+.rv.in { opacity: 1; transform: none; }
+
+/* ---- Hero ki likhai page khulte hi halka sa upar uthti hai ---- */
+/* "both" = shuru ka haal (chhupa hua) bhi lage aur aakhir ka haal bhi qaayam rahe. */
+.hero-grid > div:first-child { animation: up 1.1s cubic-bezier(.22,1,.36,1) .15s both; }
+/* up ki harkat: shuru mein 26px neeche aur dhundla; phir asli jagah. */
+@keyframes up { from { opacity: 0; transform: translateY(26px); } }
