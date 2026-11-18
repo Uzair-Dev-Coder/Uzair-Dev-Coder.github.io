@@ -575,7 +575,7 @@ h2 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; }
 /* Hero: poori screen ki oonchai (par 920px se zyada nahi). isolation: isolate = is ke andar ke z-index alag rahen. overflow: hidden = photo bahar na nikle. */
 .hero { position: relative; isolation: isolate; min-height: min(100svh, 920px); display: grid; align-items: center; padding: 4rem 0 7rem; overflow: hidden; }
 /* Peeche ki photo: poori chaurai, thodi oopar se bahar (top: -8%, height: 116%) taake parallax mein khali jagah na dikhe. z-index: -2 = sab se peeche. */
-.hero-bg { position: absolute; left: 0; top: -8%; width: 100%; height: 116%; z-index: -2; will-change: transform; background: radial-gradient(ellipse at 72% 30%, #80502f 0, transparent 40%), linear-gradient(145deg, #21160f, #51321d 58%, #17100d); }
+.hero-bg { position: absolute; left: 0; top: -8%; width: 100%; height: 116%; object-fit: cover; z-index: -2; will-change: transform; }
 /* Photo ke upar gehra parda (gradient): baayen se gehra, daayen se halka, aur neeche se gehra, taake likhai saaf parhi jaye. */
 .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(15,9,6,.93) 0%, rgba(15,9,6,.66) 55%, rgba(15,9,6,.35) 100%), linear-gradient(to top, rgba(15,9,6,.8), transparent 35%); }
 /* "I Love Chai Jan": bara serif, cream rang, harf qareeb qareeb. */

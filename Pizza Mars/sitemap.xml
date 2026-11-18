@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" />
+<!-- Sitemap: Google ko website ke pages aur tasveeron ki fehrist deta hai. ZAROORI: YOUR-DOMAIN.com ki jagah asli address likhein, aur upload ke baad Google Search Console mein jama karwa dein. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://YOUR-DOMAIN.com/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <image:image>
+      <image:loc>https://YOUR-DOMAIN.com/assets/shop-night.jpg</image:loc>
+      <image:title>Pizza Mars shop front in Shah Faisal Colony, Karachi, at night</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://YOUR-DOMAIN.com/assets/shop-sign.jpg</image:loc>
+      <image:title>The lit Pizza Mars sign above the shop entrance at night</image:title>
+    </image:image>
+  </url>
+</urlset>

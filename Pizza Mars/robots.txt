@@ -2,3 +2,5 @@
 User-agent: *
 Allow: /
 
+# ZAROORI (launch se pehle): YOUR-DOMAIN.com ki jagah website ka asli address likhein.
+Sitemap: https://YOUR-DOMAIN.com/sitemap.xml

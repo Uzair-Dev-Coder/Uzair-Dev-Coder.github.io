@@ -1,0 +1,6 @@
+# robots.txt: upload to the site root (https://YOUR-DOMAIN/robots.txt)
+User-agent: *
+Allow: /
+
+# Replace YOUR-DOMAIN with your live domain
+Sitemap: https://YOUR-DOMAIN/sitemap.xml

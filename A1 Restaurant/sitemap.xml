@@ -1,2 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" />
+<!-- TODO: example domain ki jagah asli domain likhein -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.a1peshawari.example/</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=liveGrilling</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=rooftopSeating</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=fastFood</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=desserts</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=menu</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=0&amp;item=0</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=0&amp;item=1</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=0&amp;item=2</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=1&amp;item=0</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=1&amp;item=1</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=1&amp;item=2</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=1&amp;item=3</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=1&amp;item=4</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=1&amp;item=5</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=1&amp;item=6</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=1&amp;item=7</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=1&amp;item=8</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=1&amp;item=9</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=1&amp;item=10</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=1&amp;item=11</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=2&amp;item=0</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=2&amp;item=1</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=2&amp;item=2</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=2&amp;item=3</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=2&amp;item=4</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=2&amp;item=5</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=2&amp;item=6</loc></url>
+  <url><loc>https://www.a1peshawari.example/index.html?page=item&amp;category=2&amp;item=7</loc></url>
+</urlset>

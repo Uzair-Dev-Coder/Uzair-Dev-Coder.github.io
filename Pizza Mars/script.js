@@ -257,17 +257,6 @@ update();
 /* URL mein setup likha ho to WhatsApp number check karne ka test link dikhata hai. */
 if (new URLSearchParams(location.search).has('setup')) {
   const b = document.createElement('div'); b.className = 'setup';
-  b.innerHTML = `Setup check: orders go to +${waNumber}. <a href="${waLink('Setup test from the Pizza Mars website')}" target="_blank" rel="noopener noreferrer">Open a test chat</a> to confirm this number is on WhatsApp.`;
+  b.innerHTML = `Setup check: orders go to +${waNumber}. <a href="${waLink('Setup test from the Pizza Mars website')}" target="_blank" rel="noopener">Open a test chat</a> to confirm this number is on WhatsApp.`;
   document.body.prepend(b);
-}
-
-// Add self-canonical metadata from the deployed host, never from a hard-coded placeholder.
-if (location.protocol === 'http:' || location.protocol === 'https:') {
-  const canonicalUrl = `${location.origin}${location.pathname}`;
-  let canonical = document.querySelector('link[rel="canonical"]');
-  if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.append(canonical); }
-  canonical.href = canonicalUrl;
-  let ogUrl = document.querySelector('meta[property="og:url"]');
-  if (!ogUrl) { ogUrl = document.createElement('meta'); ogUrl.setAttribute('property', 'og:url'); document.head.append(ogUrl); }
-  ogUrl.content = canonicalUrl;
 }

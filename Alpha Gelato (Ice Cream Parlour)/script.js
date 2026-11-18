@@ -1,6 +1,6 @@
-/* Yeh file menu data, filters, quick view, cart, mobile navigation aur booking form ko alag functions mein sambhalti hai. */
+/* Alpha Gelato — menu filters, quick views, and friendly form interactions. */
 
-// Tamam menu items aik hi array mein rakhe gaye hain taa-ke naam, qeemat, tasveer ya category badalne par card layout ko dobara likhna na pare.
+// Keep menu content in one place so products are easy to update without changing the layout.
 const products = [
   {
     name: "Strawberry Ripple",
@@ -101,7 +101,7 @@ const cartList = document.querySelector("#cart-items");
 const cart = new Map();
 let toastTimer;
 
-/** Chuni hui category ke cards ko dikhata hai aur baqi cards ko chhupata hai; asal cards HTML mein maujood rehte hain taa-ke accessibility aur screen-reader order barqarar rahe. */
+/** Render the requested menu category as accessible product cards. */
 function renderProducts(filter = "all") {
   const cards = productGrid.querySelectorAll(".product-card");
   cards.forEach((card) => {
@@ -109,7 +109,6 @@ function renderProducts(filter = "all") {
   });
 }
 
-// Chhota status paigham dikhata hai, purana timer band karta hai, phir kuch lamhon baad paigham ko khud chhupa deta hai.
 function showToast(message) {
   cartToast.textContent = message;
   cartToast.classList.add("show");
@@ -117,7 +116,7 @@ function showToast(message) {
   toastTimer = window.setTimeout(() => cartToast.classList.remove("show"), 2600);
 }
 
-// Visitor is button se chalti hui brand highlights rok ya chala sakta hai; device ki reduced-motion preference apni jagah laagu rehti hai.
+// A visitor can pause the moving brand highlights without disabling reduced-motion settings.
 const ticker = document.querySelector(".ticker");
 const tickerToggle = document.querySelector(".ticker-toggle");
 tickerToggle.addEventListener("click", () => {
@@ -127,7 +126,6 @@ tickerToggle.addEventListener("click", () => {
   tickerToggle.textContent = isPaused ? "Pause highlights" : "Play highlights";
 });
 
-// Chune hue product ki quantity cart mein barhata hai, total dobara banata hai aur screen par chhota confirmation dikhata hai.
 function addToOrder(product) {
   const quantity = cart.get(product.name) || 0;
   cart.set(product.name, quantity + 1);
@@ -141,12 +139,11 @@ function addToOrder(product) {
   showToast(`${product.name} added to your little order ♡`);
 }
 
-// Cart ke mukhtalif products ki tamam quantities jama karke header mein dikhane ke liye kul item count nikalta hai.
 function getCartItemCount() {
   return [...cart.values()].reduce((total, quantity) => total + quantity, 0);
 }
 
-/** Cart ke visible count, item rows, andaza-shuda total aur khali cart ke paighamat ko aik jagah update karta hai. */
+/** Update the visible order count, item list, and estimated menu total. */
 function updateCart() {
   const entries = [...cart.entries()];
   const emptyMessage = document.querySelector("#cart-empty");
@@ -185,7 +182,7 @@ function updateCart() {
   });
 }
 
-// Filter tab par click hone par purane active state hata kar chuni hui tab ko active dikhata hai aur matching menu cards rakhta hai.
+// Menu filters update both the visible cards and the active tab state.
 document.querySelectorAll(".filter-button").forEach((button) => {
   button.addEventListener("click", () => {
     document.querySelectorAll(".filter-button").forEach((tab) => {
@@ -197,7 +194,7 @@ document.querySelectorAll(".filter-button").forEach((button) => {
   });
 });
 
-// Aik delegated listener menu grid par lagaya gaya hai taa-ke har card ke button ko alag listener dene ki zaroorat na ho aur filter ke baad bhi actions kaam karein.
+// Product actions use one delegated listener because the cards are rebuilt by the filters.
 const productDialog = document.querySelector("#product-dialog");
 productGrid.addEventListener("click", (event) => {
   const addButton = event.target.closest("[data-add]");
@@ -242,7 +239,6 @@ cartList.addEventListener("click", (event) => {
   updateCart();
 });
 
-// Order ko saaf matn mein badal kar clipboard mein copy karta hai; agar browser copy rok de to wohi paigham select-able text box mein dikhata hai.
 document.querySelector("#copy-order-message").addEventListener("click", async () => {
   const orderLines = [...cart.entries()].map(([name, quantity]) => {
     const product = products.find((item) => item.name === name);
@@ -271,7 +267,7 @@ document.querySelector("#copy-order-message").addEventListener("click", async ()
   }
 });
 
-// Mobile menu toggle button, kisi navigation link, bahar click aur Escape key par band hota hai; aria-expanded state bhi saath update hoti hai.
+// Mobile navigation supports its toggle, link selection, outside taps, and Escape.
 const menuToggle = document.querySelector(".menu-toggle");
 const mainNav = document.querySelector(".main-nav");
 menuToggle.addEventListener("click", () => {
@@ -294,7 +290,6 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && mainNav.classList.contains("open")) closeMobileMenu();
 });
 
-// Mobile navigation ko band karke button ka label, icon aur accessibility state pehle jaisi karta hai.
 function closeMobileMenu() {
   mainNav.classList.remove("open");
   menuToggle.setAttribute("aria-expanded", "false");
@@ -302,7 +297,7 @@ function closeMobileMenu() {
   menuToggle.querySelector("use").setAttribute("href", "#i-menu");
 }
 
-// Booking date visitor ke apne local timezone se set hoti hai; guest slider badalte hi uska naya count foran dikhaya jata hai.
+// Booking form: keep its date picker local to the visitor and update the guest count live.
 const dateInput = document.querySelector("#event-date");
 const localToday = new Date();
 dateInput.min = new Date(localToday.getTime() - localToday.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
@@ -311,7 +306,7 @@ guestInput.addEventListener("input", () => {
   document.querySelector("#guest-output").textContent = guestInput.value;
 });
 
-// Form submit ko pehle validate karta hai; sahi maloomat par booking ki local draft banata hai taa-ke visitor usay dekh kar khud WhatsApp mein bhej sake.
+// Validate the required fields, then prepare a message the visitor can review and send in WhatsApp.
 const bookingForm = document.querySelector("#booking-form");
 const bookingFeedback = document.querySelector("#booking-feedback");
 const confirmationDialog = document.querySelector("#confirmation-dialog");

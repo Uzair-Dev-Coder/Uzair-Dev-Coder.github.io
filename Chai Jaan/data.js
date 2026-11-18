@@ -235,11 +235,11 @@ const REVIEWS = [
           aur photo na khule to yehi likha nazar aata hai)
    --------------------------------------------------------------------- */
 const GALLERY = [
-  {cat:"Ambiance", src:"", w:1100, h:571, size:"big",  alt:""},
-  {cat:"Chai",     src:"", w:580,  h:770, size:"tall", alt:""},
-  {cat:"Ambiance", src:"", w:1100, h:408, size:"wide", alt:""},
-  {cat:"Ambiance", src:"", w:590,  h:450, size:"",     alt:""},
-  {cat:"Ambiance", src:"", w:600,  h:425, size:"",     alt:""}
+  {cat:"Ambiance", src:"images/facade.webp",   w:1100, h:571, size:"big",  alt:"Chai Jan building glowing at sunset with a steaming cup in the foreground"},
+  {cat:"Chai",     src:"images/cup.webp",      w:580,  h:770, size:"tall", alt:"Steaming cup of chai on a wooden table"},
+  {cat:"Ambiance", src:"images/lounge.webp",   w:1100, h:408, size:"wide", alt:"Lantern-lit pergola seating at Chai Jan"},
+  {cat:"Ambiance", src:"images/entrance.webp", w:590,  h:450, size:"",     alt:"Guests walking into Chai Jan along a lit pathway"},
+  {cat:"Ambiance", src:"images/corridor.webp", w:600,  h:425, size:"",     alt:"Warmly lit entrance corridor at Chai Jan"}
 ];
 
 

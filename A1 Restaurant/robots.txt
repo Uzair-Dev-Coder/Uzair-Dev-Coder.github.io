@@ -1,2 +1,4 @@
+# Sab crawlers ko ijazat; sitemap ka address neeche (TODO: asli domain likhein)
 User-agent: *
 Allow: /
+Sitemap: https://www.a1peshawari.example/sitemap.xml

@@ -175,17 +175,6 @@ const B = () => BRANCHES[key];
   $("#loaderSkip").onclick = () => finish(true);
 })();
 
-// Add self-canonical metadata from the deployed host, never from a hard-coded placeholder.
-if (location.protocol === "http:" || location.protocol === "https:") {
-  const canonicalUrl = `${location.origin}${location.pathname}`;
-  let canonical = document.querySelector('link[rel="canonical"]');
-  if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.append(canonical); }
-  canonical.href = canonicalUrl;
-  let ogUrl = document.querySelector('meta[property="og:url"]');
-  if (!ogUrl) { ogUrl = document.createElement("meta"); ogUrl.setAttribute("property", "og:url"); document.head.append(ogUrl); }
-  ogUrl.content = canonicalUrl;
-}
-
 
 /* =====================================================================
    HISSA 4: Menu ke text ko "asli list" mein badalna
@@ -537,10 +526,10 @@ async function deliver(kind, data, waText, msgEl, okText) {
     return;
   }
   // Form service nahi hai: WhatsApp naye tab mein kholo. "noopener" = naya tab purane page par qabza na kar sake (hifazat).
-  window.open(waLink(waText), "_blank", "noopener,noreferrer");
-  // noopener ki wajah se window.open null de sakta hai, isliye hamesha manual link bhi dikhate hain.
+  const w = window.open(waLink(waText), "_blank", "noopener");
+  // Customer ko batao ke WhatsApp mein "Send" dabana hai. Agar browser ne naya tab roka (w khali) to link dabane ka option do.
   msgEl.innerHTML = "WhatsApp is opening with your message. Press Send there to deliver it. " +
-    `<a href="${waLink(waText)}" target="_blank" rel="noopener noreferrer">Open WhatsApp</a>`;
+    (w ? "" : `<a href="${waLink(waText)}" target="_blank" rel="noopener">Tap here if it did not open.</a>`);
 }
 
 

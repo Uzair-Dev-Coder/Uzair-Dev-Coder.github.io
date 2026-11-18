@@ -80,7 +80,7 @@ function buildGalleryHtml(pictureLabels) {
 // Dono branches ke WhatsApp order buttons banata hai taake customer apni branch chun sake.
 function buildOrderButtonsHtml() {
   return WHATSAPP_CONTACTS.map(([branchName, phoneNumber]) =>
-    `<a class="button whatsapp-button" target="_blank" rel="noopener noreferrer" href="https://wa.me/${phoneNumber}?text=${encodeURIComponent('Hello A-1 Kabab (' + branchName + ' Branch)! Main order dena chahta hu.')}">💬 Order: ${branchName}</a>`).join(' ');
+    `<a class="button whatsapp-button" target="_blank" rel="noopener" href="https://wa.me/${phoneNumber}?text=${encodeURIComponent('Hello A-1 Kabab (' + branchName + ' Branch)! Main order dena chahta hu.')}">💬 Order: ${branchName}</a>`).join(' ');
 }
 
 // ---------- 3. THEME (LIGHT DEFAULT, DARK OPTIONAL) ----------
@@ -113,7 +113,7 @@ function renderMenuList() {
       html += `<h3 class="category-label">${categoryName}</h3>`;
       // Har item ek link hai, click par naye tab mein uska detail page khulta hai.
       matchingItems.forEach(item => {
-        html += `<a class="item" href="index.html?page=item&category=${categoryIndex}&item=${items.indexOf(item)}" target="_blank" rel="noopener noreferrer"><h4>${item[0]}</h4><p>${item[1]}</p></a>`;
+        html += `<a class="item" href="index.html?page=item&category=${categoryIndex}&item=${items.indexOf(item)}" target="_blank" rel="noopener"><h4>${item[0]}</h4><p>${item[1]}</p></a>`;
       });
     }
   });
@@ -138,7 +138,7 @@ function selectBranch(branchKey) {
   const message = encodeURIComponent('Hello A-1 Kabab (' + branch.branchLabel + ')! Main order dena chahta hu.');
   const whatsappUrl = 'https://wa.me/' + branch.whatsappNumber + '?text=' + message;
   let buttonsHtml = branch.phones.map(phone => `<a class="button call-button" href="tel:${phone.replace(/-/g, '')}">📞 ${phone}</a>`).join('');
-  buttonsHtml += `<a class="button whatsapp-button" target="_blank" rel="noopener noreferrer" href="${whatsappUrl}">💬 Order on WhatsApp</a>`;
+  buttonsHtml += `<a class="button whatsapp-button" target="_blank" rel="noopener" href="${whatsappUrl}">💬 Order on WhatsApp</a>`;
   document.getElementById('branch-actions').innerHTML = buttonsHtml;
   document.getElementById('floating-whatsapp-button').href = whatsappUrl;
   const mapQuery = encodeURIComponent('A-1 Peshawari Chapli Kabab ' + branch.address);
@@ -193,7 +193,7 @@ if (pageName) {
     detailPage.innerHTML = `<h1>${itemName} <span class="price">${PRICE}</span></h1>
       <section><p class="lead-paragraph">${fullDescription}</p></section>
       <section><h2>Image Gallery</h2><div class="gallery">${buildGalleryHtml([itemName + ' - Plated', itemName + ' - Close-up', itemName + ' - Fresh from the Kitchen', itemName + ' - Served at the Table'])}</div></section>
-      <section><div class="actions">${buildOrderButtonsHtml()}<a class="button call-button" href="index.html?page=menu" target="_blank" rel="noopener noreferrer">📖 Full Menu</a></div></section>`;
+      <section><div class="actions">${buildOrderButtonsHtml()}<a class="button call-button" href="index.html?page=menu" target="_blank" rel="noopener">📖 Full Menu</a></div></section>`;
   } else if (Object.prototype.hasOwnProperty.call(OFFERINGS, pageName)) { // FIX: ?page=constructor jaisi galat value se page crash hota tha
     // Offering ka detail: 3 paragraphs, gallery, highlights aur order buttons.
     const offering = OFFERINGS[pageName];
@@ -202,13 +202,13 @@ if (pageName) {
       <section>${offering.introductionParagraphs.map(paragraph => `<p class="lead-paragraph">${paragraph}</p>`).join('')}</section>
       <section><h2>Picture Gallery</h2><div class="gallery">${buildGalleryHtml(offering.pictureLabels)}</div></section>
       <section><h2>Highlights</h2><div class="highlight-grid">${offering.highlights.map(text => `<div class="item"><p>✔ ${text}</p></div>`).join('')}</div></section>
-      <section><h2>Order Now</h2><div class="actions">${buildOrderButtonsHtml()}<a class="button call-button" href="index.html?page=menu" target="_blank" rel="noopener noreferrer">📖 Full Menu</a></div></section>`;
+      <section><h2>Order Now</h2><div class="actions">${buildOrderButtonsHtml()}<a class="button call-button" href="index.html?page=menu" target="_blank" rel="noopener">📖 Full Menu</a></div></section>`;
   } else {
     // Poora menu card: category tabs, har item ka link, price aur dish gallery.
     document.title = 'Menu | A-1 Peshawari';
     detailPage.innerHTML = `<h1>📖 Digital Menu Card</h1><section><p class="lead-paragraph">Peshawari chapli kabab, barbecue, fast food and desserts, all in one place. Select any item to see its full description and photos. Prices may vary by branch.</p>
       <div class="category-tabs">${MENU_CATEGORIES.map((category, index) => `<a href="#category-${index}">${category[0]}</a>`).join('')}</div></section>` +
-      MENU_CATEGORIES.map((category, categoryIndex) => `<section id="category-${categoryIndex}"><h2>${category[0]}</h2><div class="menu-grid">${category[1].map((item, itemIndex) => `<a class="item" href="index.html?page=item&category=${categoryIndex}&item=${itemIndex}" target="_blank" rel="noopener noreferrer"><h3>${item[0]} <span class="price">${PRICE}</span></h3><p>${item[1]}</p></a>`).join('')}</div></section>`).join('') +
+      MENU_CATEGORIES.map((category, categoryIndex) => `<section id="category-${categoryIndex}"><h2>${category[0]}</h2><div class="menu-grid">${category[1].map((item, itemIndex) => `<a class="item" href="index.html?page=item&category=${categoryIndex}&item=${itemIndex}" target="_blank" rel="noopener"><h3>${item[0]} <span class="price">${PRICE}</span></h3><p>${item[1]}</p></a>`).join('')}</div></section>`).join('') +
       `<section><h2>Dish Gallery</h2><div class="gallery">${buildGalleryHtml(['Chapli Kabab', 'BBQ Platter', 'Burgers', 'Shawarma', 'Falooda', 'Shakes'])}</div></section><section><div class="actions">${buildOrderButtonsHtml()}</div></section>`;
   }
 }
@@ -216,30 +216,14 @@ if (pageName) {
 // ---------- 6. UPGRADES: SEO + ANIMATION + PERFORMANCE (NAYA) ----------
 // Helper: meta tag ki value badalta hai. KYUN: har detail page ka apna description/title Google ko mile.
 function setMetaTag(selector, attribute, value) {
-  let element = document.querySelector(selector);
-  if (!element && selector === 'link[rel="canonical"]') {
-    element = document.createElement('link');
-    element.rel = 'canonical';
-    document.head.appendChild(element);
-  } else if (!element && selector === 'meta[property="og:url"]') {
-    element = document.createElement('meta');
-    element.setAttribute('property', 'og:url');
-    document.head.appendChild(element);
-  }
+  const element = document.querySelector(selector);
   if (element) element.setAttribute(attribute, value);
 }
 
 // SEO: detail pages (item / offering / menu) ke liye apna description, canonical, social tags aur schema.
 // KYUN: ek hi index.html par sab pages hain, is liye har ?page= ko alag pehchan chahiye warna Google sab ko ek jaisa samjhega.
 (function updateSeoForDetailPages() {
-  if (!pageName) {
-    if (window.location.protocol.startsWith('http')) {
-      const pageUrl = window.location.origin + window.location.pathname;
-      setMetaTag('link[rel="canonical"]', 'href', pageUrl);
-      setMetaTag('meta[property="og:url"]', 'content', pageUrl);
-    }
-    return;
-  }
+  if (!pageName) return; // home page ka SEO HTML mein pehle se maujood hai
   // FIX (UPDATE 2): galat ?page= wala link menu dikha deta tha (soft-404 / duplicate). Ab Google ko noindex ka ishara milta hai.
   if (pageName !== 'item' && pageName !== 'menu' && !Object.prototype.hasOwnProperty.call(OFFERINGS, pageName)) setMetaTag('meta[name="robots"]', 'content', 'noindex, follow');
   const params = new URLSearchParams(window.location.search);

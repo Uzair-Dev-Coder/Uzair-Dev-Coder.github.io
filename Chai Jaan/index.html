@@ -42,11 +42,10 @@
   <meta property="og:title" content="Chai Jan | Late-night chai in Karachi">
   <meta property="og:description" content="Chai, crispy parathas, chaat and more. Dine-in, takeaway and delivery.">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Chai Jan">
-  <meta property="og:locale" content="en_PK">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Chai Jan | Late-night chai in Karachi">
-  <meta name="twitter:description" content="Chai, crispy parathas, chaat and more. Dine-in, takeaway and delivery.">
+  <!-- TODO (karne wala kaam): apna asli domain likhein (jaise https://chaijan.pk/). Google ko batata hai ke asli pata kya hai. -->
+  <link rel="canonical" href="https://www.example.com/">
+  <!-- Hero ki bari photo pehle se download karne ka hukm (website tez khulti hai). -->
+  <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high">
   <!-- Google Fonts se pehle hi rabta kar lo (preconnect), taake fonts jaldi aayein. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -129,8 +128,10 @@
      HISSA 3: HEADER (logo, links, theme aur cart ke buttons)
      ===================================================================== -->
 <header class="bar"><div class="wrap row">
-  <!-- Brand name is text, so it remains available even when images are not supplied. -->
+  <!-- Logo: aapki di hui asli logo photo (images/logo.webp) aur saath mein "Chai" aur "Jan" likha hua.
+       alt="" = photo sirf sajawat hai (naam saath likha hua hai). aria-label = screen reader ko link ka maqsad batata hai. -->
   <a class="brand" href="#top" aria-label="Chai Jan, back to top">
+    <img class="logo" src="images/logo.webp" alt="" width="46" height="40">
     <span class="wm">Chai</span><span class="jan">Jan</span>
   </a>
   <!-- Navigation: har link page ke ek hissay par le jata hai (#delivery = id="delivery" wala hissa). -->
@@ -154,7 +155,7 @@
   <section class="hero">
     <!-- Peeche ki bari photo (restaurant ki building). alt="" = sirf sajawat. width/height pehle se likhne se page hilta nahi.
          fetchpriority="high" = isay sab se pehle download karo. -->
-    <div class="hero-bg" aria-hidden="true"></div>
+    <img class="hero-bg" src="images/hero.webp" alt="" width="1600" height="899" fetchpriority="high" decoding="async">
     <div class="wrap hero-grid">
     <!-- Baayen taraf: likhai aur buttons -->
     <div>
@@ -177,7 +178,7 @@
       <a class="btn accent mag" href="#menu">Browse the menu</a> <a class="btn ghost mag" href="#delivery">Delivery zones</a>
     </div>
     <!-- Daayen taraf: mehrab (arch) shakal ki chai ki photo. Isay kisi bhi apni photo se badal sakte hain. -->
-    <div class="arch" role="img" aria-label="Illustration of a steaming cup of chai at Chai Jan"><img src="images/chai-cup.svg" alt="" width="580" height="770" decoding="async"></div>
+    <div class="arch"><img src="images/cup.webp" alt="Steaming cup of chai at Chai Jan" width="580" height="770" decoding="async"></div>
   </div></section>
 
 
@@ -260,7 +261,7 @@
     </ul>
   </div>
   <!-- About ki photo. loading="lazy" = jab screen ke qareeb aaye tab download (website tez rehti hai). -->
-  <img class="about-img" src="images/cafe-interior.svg" alt="Illustration of a warmly lit cafe interior" width="600" height="425" loading="lazy" decoding="async">
+  <img class="about-img" src="images/corridor.webp" alt="Warmly lit entrance corridor at Chai Jan" width="600" height="425" loading="lazy" decoding="async">
   </div></section>
 
 
@@ -365,8 +366,8 @@
      ===================================================================== -->
 
 <!-- Floating WhatsApp button: neeche daayen kone mein chipka rehta hai. href aur label app.js chuni hui branch ke hisaab se badalta hai.
-     target="_blank" = naye tab mein khule. rel="noopener noreferrer" = naya tab purane page par qabza na kar sake (hifazat). -->
-<a id="waFloat" class="wa" href="https://wa.me/923284400999" target="_blank" rel="noopener noreferrer" aria-label="Chat with Chai Jan on WhatsApp">
+     target="_blank" = naye tab mein khule. rel="noopener" = naya tab purane page par qabza na kar sake (hifazat). -->
+<a id="waFloat" class="wa" href="https://wa.me/923284400999" target="_blank" rel="noopener" aria-label="Chat with Chai Jan on WhatsApp">
   <!-- WhatsApp ka nishan (safed bolta hua baadal aur andar hara telephone), code se banaya hua. -->
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <path d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2z" fill="#fff"/>
